@@ -20,7 +20,7 @@ public class Assembler extends Thread{
 
     private static final Logger logger = Logger.getLogger(Productor.class.getName());
     
-    public Assembler(int[] storage, int computerStorage, int computerGPUStorage, int nMotherBoard, int nCPU, int nRAM, int nPowerSupply, int nGPU) {
+    public Assembler(int[] storage, int computerStorage, int computerGPUStorage, int nMotherBoard, int nCPU, int nRAM, int nPowerSupply, int nGPU, int compuCounter) {
         this.storage = storage;
         this.computerStorage = computerStorage;
         this.computerGPUStorage = computerGPUStorage;
@@ -30,6 +30,7 @@ public class Assembler extends Thread{
         this.nPowerSupply = nPowerSupply;
         this.nGPU = nGPU;
         this.counter = 0;
+        this.compuCounter = compuCounter;
         this.salary = 50;
         this.days = 2000;
     }
@@ -38,40 +39,56 @@ public class Assembler extends Thread{
     public void run(){
         while (true) {
             if (counter < compuCounter) {
-                if (storage[0] >= nMotherBoard && storage[1] >= nCPU && storage[2] >= nRAM && storage[3] >= nPowerSupply) {
+                if (this.isPossibleCompuN()) {
                     try {
-                        storage[0] -= nMotherBoard;
-                        storage[1] -= nCPU;
-                        storage[2] -= nRAM;
-                        storage[3] -= nPowerSupply;
-                        computerStorage++;
+                        this.buildCompuN();
                         counter++;
                         sleep(days);
                     } catch (InterruptedException e) {
                         logger.log(Level.SEVERE, "Thread interrupted", e);
                     }
-                }//else{
-                //    System.out.println("No hay suficientes componentes");
-                //}
+                }else{
+                    System.out.println("No hay suficientes componentes");
+                }
             } else {
-                if (storage[0] >= nMotherBoard && storage[1] >= nCPU && storage[2] >= nRAM && storage[3] >= nPowerSupply && storage[4] >= nGPU) {
+                if (this.isPossibleCompuGPU()) {
                     try {
-                        storage[0] -= nMotherBoard;
-                        storage[1] -= nCPU;
-                        storage[2] -= nRAM;
-                        storage[3] -= nPowerSupply;
-                        storage[4] -= nGPU;
-                        computerStorage ++;
+                        this.buildCompuGPU();
                         counter = 0;
                         sleep(days);
                     } catch (InterruptedException e) {
                         logger.log(Level.SEVERE, "Thread interrupted", e);
                     }
-                } //else {
-                    //System.out.println("No hay suficientes componentes");
-                //}
+                } else {
+                    System.out.println("No hay suficientes componentes GPU");
+                }
             }
 
         }
+    }
+    
+    public boolean isPossibleCompuN(){
+        return storage[0] >= nMotherBoard && storage[1] >= nCPU && storage[2] >= nRAM && storage[3] >= nPowerSupply;
+    }
+    
+    public boolean isPossibleCompuGPU(){
+        return storage[0] >= nMotherBoard && storage[1] >= nCPU && storage[2] >= nRAM && storage[3] >= nPowerSupply && storage[4] >= nGPU;
+    }
+    
+    public void buildCompuN(){
+        storage[0] -= nMotherBoard;
+        storage[1] -= nCPU;
+        storage[2] -= nRAM;
+        storage[3] -= nPowerSupply;
+        computerStorage++;
+    }
+    
+    public void buildCompuGPU(){
+        storage[0] -= nMotherBoard;
+        storage[1] -= nCPU;
+        storage[2] -= nRAM;
+        storage[3] -= nPowerSupply;
+        storage[4] -= nGPU;
+        computerGPUStorage ++;
     }
 }
