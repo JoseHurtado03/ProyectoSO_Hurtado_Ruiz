@@ -43,24 +43,36 @@ public class Assembler extends Thread{
                     try {
                         this.buildCompuN();
                         counter++;
+                        System.out.println("Hay "+computerStorage+" computadoras normales");
                         sleep(days);
                     } catch (InterruptedException e) {
                         logger.log(Level.SEVERE, "Thread interrupted", e);
                     }
                 }else{
-                    System.out.println("No hay suficientes componentes");
+                    try{
+                        System.out.println("No hay suficientes componentes");
+                        sleep(1000);
+                    }catch(InterruptedException e) {
+                        logger.log(Level.SEVERE, "Thread interrupted", e);
+                    }
                 }
             } else {
                 if (this.isPossibleCompuGPU()) {
                     try {
                         this.buildCompuGPU();
                         counter = 0;
+                        System.out.println("Hay "+computerGPUStorage+" computadoras con GPU");
                         sleep(days);
                     } catch (InterruptedException e) {
                         logger.log(Level.SEVERE, "Thread interrupted", e);
                     }
                 } else {
-                    System.out.println("No hay suficientes componentes GPU");
+                    try{
+                        System.out.println("No hay suficientes componentes para GPU");
+                        sleep(1000);
+                    }catch(InterruptedException e) {
+                        logger.log(Level.SEVERE, "Thread interrupted", e);
+                    }
                 }
             }
 
