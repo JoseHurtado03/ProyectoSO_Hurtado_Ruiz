@@ -20,9 +20,19 @@ public class ProjectManager extends Thread{
     
     @Override
     public void run(){
+        long startTime = System.currentTimeMillis(); //Contador del tiempo. 
         while(true){
-            long startTime = System.currentTimeMillis(); //Contador del tiempo. 
-            
+            try {
+                long countTime = System.currentTimeMillis();
+                if ((countTime-startTime)%30==0) {
+                    if (isWatchingAnime) {
+                        isWatchingAnime=false;
+                    }else{
+                        isWatchingAnime=true;
+                    }
+                }
+            } catch (Exception e) {
+            }
             //Si el tiempo del día es menor a 667ms{
             //    Cada 20.833ms cambia el estado de isWatchingAnime
             //}Sino{
