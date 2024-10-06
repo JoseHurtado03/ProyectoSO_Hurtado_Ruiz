@@ -46,6 +46,7 @@ public class Productor extends Thread{
                     sleep(days);
                 }else{
                     System.out.println("Almacén lleno");                        //Solo para debug
+                    sleep(1000);
                 }
             }catch(InterruptedException e){
                 logger.log(Level.SEVERE, "Thread interrupted", e);
