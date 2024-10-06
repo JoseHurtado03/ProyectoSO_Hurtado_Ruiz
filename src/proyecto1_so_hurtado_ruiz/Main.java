@@ -1,5 +1,6 @@
 
-package proyecto1_so_hurtado_ruiz;
+package proyecto1_so_hurtado_ruiz;    
+import EDD.List;
 /**
  *
  * @authors José Hurtado y Joseph Ruiz
@@ -12,20 +13,33 @@ public class Main {
         int compuNHP = 0;
         int compuGPU_HP = 0;
         
-        
+        List pMBList= new List();
+        List pCPUList= new List();
+        List pRAMList= new List();
+        List pGPUList= new List();
+        List pPSUList= new List();
+        List assemblerHPList= new List();
+
         Productor motherBoard = new Productor(storageHP, 25, 0, 20, 1, 2000);
         Productor CPU = new Productor(storageHP, 20, 1, 26, 1, 2000);
         Productor RAM = new Productor(storageHP, 55, 2, 40, 3, 1000);
-        Productor powerSupply = new Productor(storageHP, 35, 3, 16, 3, 1000);
+        Productor PSU = new Productor(storageHP, 35, 3, 16, 3, 1000);
         Productor GPU = new Productor(storageHP, 10, 4, 34, 1, 3000);
         
         Assembler assemblerHP = new Assembler(storageHP, compuNHP, compuGPU_HP, 1, 1, 2, 4, 3, 2);
         
-        assemblerHP.start();
-        motherBoard.start();
-        CPU.start();
-        RAM.start();
-        powerSupply.start();
-        GPU.start();
+        pMBList.addEnd(motherBoard);
+        pCPUList.addEnd(CPU);
+        pPSUList.addEnd(PSU);
+        pRAMList.addEnd(RAM);
+        pGPUList.addEnd(GPU);
+        assemblerHPList.addEnd(assemblerHP);
+        
+//        assemblerHP.start();
+//        motherBoard.start();
+//        CPU.start();
+//        RAM.start();
+//        powerSupply.start();
+//        GPU.start();
     }
 }
