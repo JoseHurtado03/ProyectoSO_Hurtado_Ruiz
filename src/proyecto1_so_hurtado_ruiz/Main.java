@@ -10,10 +10,13 @@ public class Main {
 
     public static void main(String[] args) {
         //EMPRESA HP
+        long startTime = System.currentTimeMillis();
+        System.out.println(startTime);
         Semaphore mutexHP= new Semaphore(1);
         int[] storageHP = new int[5];     //ALMACÉN   [|0 motherBoard| 1 CPU | 2 RAM | 3 PSU | 4 GPU |]
         int compuNHP = 0;
         int compuGPU_HP = 0;
+        
         
         List pMBList= new List();
         List pCPUList= new List();
@@ -31,7 +34,7 @@ public class Main {
         Productor GPU = new Productor(storageHP, 10, 4, 34, 1, 3000, mutexHP);
         
         Assembler assemblerHP = new Assembler(storageHP, compuNHP, compuGPU_HP, 1, 1, 2, 4, 3, 2, mutexHP);
-//        ProjectManager pmHP= new ProjectManager(0, 0, 0);
+        ProjectManager pmHP= new ProjectManager(20, 40, 0, startTime);
         
         pMBList.addEnd(motherBoard);
         pMBList.addEnd(motherBoard2);
@@ -41,12 +44,7 @@ public class Main {
         pRAMList.addEnd(RAM);
         pGPUList.addEnd(GPU);
         assemblerHPList.addEnd(assemblerHP);
+        pmHP.start();
         
-//        assemblerHP.start();
-//        motherBoard.start();
-//        CPU.start();
-//        RAM.start();
-//        powerSupply.start();
-//        GPU.start();
     }
 }
