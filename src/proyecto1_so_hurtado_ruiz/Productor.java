@@ -1,6 +1,7 @@
 
 package proyecto1_so_hurtado_ruiz;
 
+import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -11,39 +12,43 @@ public class Productor extends Thread{
     private int salary;                   //Monto que cobra
     private int productsQuantity;         //Cantidad de producto x que produce en...
     private int days;                     //days días. (1día = 1segundo = 1000ms)
+    private Semaphore mutex;
 
     private static final Logger logger = Logger.getLogger(Productor.class.getName());
 
-    public Productor(int[] storage, int storageLimit, int index, int salary, int productsQuantity, int days) {
+    public Productor(int[] storage, int storageLimit, int index, int salary, int productsQuantity, int days, Semaphore mutex) {
         this.storage = storage;
         this.storageLimit = storageLimit;
         this.index = index;
         this.salary = salary;
         this.productsQuantity = productsQuantity;
         this.days = days;
+        this.mutex= mutex;
     }
     
     @Override
     public void run(){
+        try {
+            sleep(days);
+        } catch (InterruptedException e){
+                logger.log(Level.SEVERE, "Thread interrupted", e);
+        }
         while(true){
-            if (storage[index] < storageLimit) {
-                try {
-                    sleep(days);
+            try{
+                if (storage[index] < storageLimit) {
+                    mutex.acquire();
                     storage[index] += productsQuantity;
                     System.out.println("Producto añadido correctamente");       //Solo para debug
                     for (int i = 0; i < storage.length; i++) {                  //Solo para debug
                         System.out.println(storage[i]);
                     }
-                } catch (InterruptedException e) {
-                    logger.log(Level.SEVERE, "Thread interrupted", e);
-                }
-            }else{
-                try{
+                    mutex.release();
                     sleep(days);
+                }else{
                     System.out.println("Almacén lleno");                        //Solo para debug
-                }catch(InterruptedException e){
-                    logger.log(Level.SEVERE, "Thread interrupted", e);
                 }
+            }catch(InterruptedException e){
+                logger.log(Level.SEVERE, "Thread interrupted", e);
             }
         }
     }

@@ -3,6 +3,8 @@ package proyecto1_so_hurtado_ruiz;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.concurrent.Semaphore;
+
 
 public class Assembler extends Thread{
     int[] storage;            //Almacén en el que debe buscar los componentes
@@ -17,10 +19,12 @@ public class Assembler extends Thread{
     int compuCounter;         //Contador de cuantas compu. normales se deben hacer para luego hacer una con GPU
     int salary;
     int days;                 //Días que tarda en hacer una computadora
+    Semaphore mutex;
+
 
     private static final Logger logger = Logger.getLogger(Productor.class.getName());
     
-    public Assembler(int[] storage, int computerStorage, int computerGPUStorage, int nMotherBoard, int nCPU, int nRAM, int nPowerSupply, int nGPU, int compuCounter) {
+    public Assembler(int[] storage, int computerStorage, int computerGPUStorage, int nMotherBoard, int nCPU, int nRAM, int nPowerSupply, int nGPU, int compuCounter, Semaphore mutex) {
         this.storage = storage;
         this.computerStorage = computerStorage;
         this.computerGPUStorage = computerGPUStorage;
@@ -33,51 +37,44 @@ public class Assembler extends Thread{
         this.compuCounter = compuCounter;
         this.salary = 50;
         this.days = 2000;
+        this.mutex= mutex;
     }
     
     @Override
     public void run(){
         while (true) {
-            if (counter < compuCounter) {
-                if (this.isPossibleCompuN()) {
-                    try {
+            try{
+                if (counter < compuCounter) {
+                    if (this.isPossibleCompuN()) {
+                        mutex.acquire();
                         this.buildCompuN();
                         counter++;
                         System.out.println("Hay "+computerStorage+" computadoras normales");
                         sleep(days);
-                    } catch (InterruptedException e) {
-                        logger.log(Level.SEVERE, "Thread interrupted", e);
-                    }
-                }else{
-                    try{
+                        mutex.release();
+                    }else{
                         System.out.println("No hay suficientes componentes");
                         sleep(1000);
-                    }catch(InterruptedException e) {
-                        logger.log(Level.SEVERE, "Thread interrupted", e);
                     }
-                }
-            } else {
-                if (this.isPossibleCompuGPU()) {
-                    try {
+                } else {
+                    if (this.isPossibleCompuGPU()) {
+                        mutex.acquire();
                         this.buildCompuGPU();
                         counter = 0;
                         System.out.println("Hay "+computerGPUStorage+" computadoras con GPU");
                         sleep(days);
-                    } catch (InterruptedException e) {
-                        logger.log(Level.SEVERE, "Thread interrupted", e);
-                    }
-                } else {
-                    try{
+                        mutex.release();
+                    } else {
                         System.out.println("No hay suficientes componentes para GPU");
                         sleep(1000);
-                    }catch(InterruptedException e) {
-                        logger.log(Level.SEVERE, "Thread interrupted", e);
                     }
                 }
+            }catch(InterruptedException e) {
+                        logger.log(Level.SEVERE, "Thread interrupted", e);
+                }
             }
-
         }
-    }
+
     
     public boolean isPossibleCompuN(){
         return storage[0] >= nMotherBoard && storage[1] >= nCPU && storage[2] >= nRAM && storage[3] >= nPowerSupply;

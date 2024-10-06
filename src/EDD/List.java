@@ -23,7 +23,6 @@ public class List {
 
     public void addEnd(Thread hilo) {
         Node worker= new Node(hilo);
-
         if (isEmpty()) {
             this.first = worker;
             this.last = worker;
@@ -37,22 +36,19 @@ public class List {
     }
     
         public void removeLast() {
-            if (this.isEmpty()) {
+            if (this.size == 1) {
                 JOptionPane.showMessageDialog(null, "No se puede quitar mas trabajadores de este tipo debido a que no hay");
             } else {
-                if (this.size == 1) {
-                    setFirst(null);                    
-                } else {
-                    Node aux = this.first;
-                    for (int i = 0; i < this.size; i++) {
-                        if (aux.getNext().equals(this.last)) {
-                            this.last = aux;
-                            this.size--;
-                        }
-                        aux = aux.getNext();
+                Node aux = this.first;
+                for (int i = 0; i < this.size; i++) {
+                    if (aux.getNext().equals(this.last)) {
+                        this.last = aux;
+                        this.size--;
                     }
+                aux = aux.getNext();
                 }
             }
+            
     }
 
     
