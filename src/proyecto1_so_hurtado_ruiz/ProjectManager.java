@@ -2,6 +2,8 @@
 package proyecto1_so_hurtado_ruiz;
 
 import java.util.logging.Logger;
+import java.util.logging.Level;
+
 
 public class ProjectManager extends Thread{
     private int daysCounter;                //Contador de los días que faltan para entregar las computadoras
@@ -40,8 +42,8 @@ public class ProjectManager extends Thread{
                     daysCounter--;
                     sleep(332);                                //333ms es el equivalente a 8hrs (Si consideramos que 24hrs son 1000ms)
                 }
-            } catch (Exception e) {
-                //logger.log(Level.SEVERE, "Thread interrupted", e);
+            } catch (InterruptedException e) {
+                logger.log(Level.SEVERE, "Thread interrupted", e);
             }
         }
     }
