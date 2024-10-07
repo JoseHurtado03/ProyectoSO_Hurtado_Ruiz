@@ -24,7 +24,7 @@ public class Assembler extends Thread{
 
     private static final Logger logger = Logger.getLogger(Productor.class.getName());
     
-    public Assembler(int[] storage, int computerStorage, int computerGPUStorage, int nMotherBoard, int nCPU, int nRAM, int nPowerSupply, int nGPU, int compuCounter, Semaphore mutex) {
+    public Assembler(int[] storage, int computerStorage, int computerGPUStorage, int nMotherBoard, int nCPU, int nRAM, int nPowerSupply, int nGPU, int compuCounter, int days, Semaphore mutex) {
         this.storage = storage;
         this.computerStorage = computerStorage;
         this.computerGPUStorage = computerGPUStorage;
@@ -36,7 +36,7 @@ public class Assembler extends Thread{
         this.counter = 0;
         this.compuCounter = compuCounter;
         this.salary = 50;
-        this.days = 2000;
+        this.days = days;
         this.mutex= mutex;
     }
     

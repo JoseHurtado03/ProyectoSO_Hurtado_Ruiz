@@ -33,7 +33,7 @@ public class Main {
         Productor PSU = new Productor(storageHP, 35, 3, 16, 3, 1000, mutexHP);
         Productor GPU = new Productor(storageHP, 10, 4, 34, 1, 3000, mutexHP);
         
-        Assembler assemblerHP = new Assembler(storageHP, compuNHP, compuGPU_HP, 1, 1, 2, 4, 3, 2, mutexHP);
+        Assembler assemblerHP = new Assembler(storageHP, compuNHP, compuGPU_HP, 1, 1, 2, 4, 3, 2, 2000, mutexHP);
         ProjectManager pmHP= new ProjectManager(20, 40, 0, startTime);
         
 //        pMBList.addEnd(motherBoard);

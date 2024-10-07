@@ -3,21 +3,46 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
+import EDD.List;
+import java.util.concurrent.Semaphore;
+import proyecto1_so_hurtado_ruiz.Assembler;
 import proyecto1_so_hurtado_ruiz.Main;
+import proyecto1_so_hurtado_ruiz.Productor;
+import proyecto1_so_hurtado_ruiz.ProjectManager;
 
 /**
  *
  * @author josep
  */
 public class mainMenu extends javax.swing.JFrame {
+    //GUIs
     private HP hpWindow;
     private DELL dellWindow;
+    
+    //General variables. Hp and Dell should have their own
+    public long startTime;
+    public int[] storageHP;     //ALMACÉN   [| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU |]
+    public int[] storageDell;     //ALMACÉN   [| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU |]
+    public Semaphore mutexDell;
+    public Semaphore mutexHP;
+    public int compuNHP;
+    public int compuGPU_HP;
+
+    //Variables to initiate simulation
+    public int[] workers; //Array de cuántos empleados contratar. [| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU | 5 assemblers | 6 PM | 7 Director |]
+    public List pMBList;
+    public List pCPUList;
+    public List pRAMList;
+    public List pPSUList;
+    public List pGPUList;
+    public List assemblerHPList;
     /**
      * Creates new form mainMenu1
      */
     public mainMenu() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.pMBList=null;
     }
 
     /**
@@ -281,7 +306,17 @@ public class mainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_exportTXTActionPerformed
 
     private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
-        // TODO add your handling code here:
+        start.setVisible(false);
+        Thread employee=null;
+        for (int companyNumber = 0; companyNumber < 2; companyNumber++) { //Itera en el tipo de compañía (0 HP, 1 DEll)
+            for (int typeWorker = 0 ; typeWorker < workers.length; typeWorker++) { //Itera por la cantidad de empleados distintos que existen
+                for (int workerQuantity = 0; workerQuantity < workers[typeWorker]; workerQuantity++) { //Itera por la cantidad de empleados de x tipo
+                    employee=hireEmployee(companyNumber, typeWorker); //Contrata un nuevo empleado
+                }
+            }
+        }
+        
+       
     }//GEN-LAST:event_startActionPerformed
 
     /**
@@ -319,6 +354,40 @@ public class mainMenu extends javax.swing.JFrame {
             }
         });
     }
+    
+    public Thread hireEmployee(int companyNumber, int typeWorker) {
+        Thread employee=null;
+        int daysMSInt=Integer.parseInt(daysMS.getText());
+        if (companyNumber==0) { //Estamos en el caso de que contrataremos empleados para HP
+            
+            if (typeWorker==0) { //Estamos en el caso de que contrataremos MB productores
+                employee = new Productor(storageHP, 25, 0, 20, 1, 2*daysMSInt, mutexHP);
+            }
+            if (typeWorker==1) { //Estamos en el caso de que contrataremos CPU productores
+                employee = new Productor(storageHP, 20, 1, 26, 1, 2*daysMSInt, mutexHP);
+            }
+            if (typeWorker==2) { //Estamos en el caso de que contrataremos RAM productores
+                employee = new Productor(storageHP, 55, 2, 40, 3, daysMSInt, mutexHP);
+            }
+            if (typeWorker==3) { //Estamos en el caso de que contrataremos PSU productores
+                employee = new Productor(storageHP, 35, 3, 16, 3, daysMSInt, mutexHP);
+            }
+            if (typeWorker==4) { //Estamos en el caso de que contrataremos GPU productores
+                employee = new Productor(storageHP, 10, 4, 34, 1, 3*daysMSInt, mutexHP);
+            }
+            if (typeWorker==5) { //Estamos en el caso de que contrataremos un ensamblador
+                employee = new Assembler(storageHP, compuNHP, compuGPU_HP, 1, 1, 2, 4, 3, 2, 2*daysMSInt, mutexHP);
+            }
+            if (typeWorker==6) { //Estamos en el caso de que contrataremos un PM
+                employee = new ProjectManager(20, 40, 0, startTime);
+            }
+//            if (typeWorker==7) { //Estamos en el caso de que contrataremos un director
+//                employee = new Assembler(storageHP, compuNHP, compuGPU_HP, 1, 1, 2, 4, 3, 2, 2*daysMSInt, mutexHP);
+//            }
+        }
+        return employee;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Dell;
