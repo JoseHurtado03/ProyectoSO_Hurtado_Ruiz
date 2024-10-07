@@ -12,7 +12,6 @@ public class Main {
     public static void main(String[] args) {
         //EMPRESA HP
         long startTime = System.currentTimeMillis();
-        System.out.println(startTime);
         Semaphore mutexHP= new Semaphore(1);
         int[] storageHP = new int[5];     //ALMACÉN   [|0 motherBoard| 1 CPU | 2 RAM | 3 PSU | 4 GPU |]
         int compuNHP = 0;
