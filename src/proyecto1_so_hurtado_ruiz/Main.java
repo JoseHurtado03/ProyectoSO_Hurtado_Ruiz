@@ -2,6 +2,7 @@
 package proyecto1_so_hurtado_ruiz;    
 import EDD.List;
 import java.util.concurrent.Semaphore;
+import GUI.mainMenu;
 /**
  *
  * @authors José Hurtado y Joseph Ruiz
@@ -36,15 +37,18 @@ public class Main {
         Assembler assemblerHP = new Assembler(storageHP, compuNHP, compuGPU_HP, 1, 1, 2, 4, 3, 2, mutexHP);
         ProjectManager pmHP= new ProjectManager(20, 40, 0, startTime);
         
-        pMBList.addEnd(motherBoard);
-        pMBList.addEnd(motherBoard2);
-        pMBList.addEnd(motherBoard3);
-        pCPUList.addEnd(CPU);
-        pPSUList.addEnd(PSU);
-        pRAMList.addEnd(RAM);
-        pGPUList.addEnd(GPU);
-        assemblerHPList.addEnd(assemblerHP);
-        pmHP.start();
+//        pMBList.addEnd(motherBoard);
+//        pMBList.addEnd(motherBoard2);
+//        pMBList.addEnd(motherBoard3);
+//        pCPUList.addEnd(CPU);
+//        pPSUList.addEnd(PSU);
+//        pRAMList.addEnd(RAM);
+//        pGPUList.addEnd(GPU);
+//        assemblerHPList.addEnd(assemblerHP);
+//        pmHP.start();
+        
+        mainMenu mainGUI = new mainMenu();
+        mainGUI.setVisible(true);
         
     }
 }
