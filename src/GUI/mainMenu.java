@@ -9,6 +9,7 @@ import proyecto1_so_hurtado_ruiz.Assembler;
 import proyecto1_so_hurtado_ruiz.Main;
 import proyecto1_so_hurtado_ruiz.Productor;
 import proyecto1_so_hurtado_ruiz.ProjectManager;
+import proyecto1_so_hurtado_ruiz.Company;
 
 /**
  *
@@ -21,28 +22,28 @@ public class mainMenu extends javax.swing.JFrame {
     
     //General variables. Hp and Dell should have their own
     public long startTime;
-    public int[] storageHP;     //ALMACÉN   [| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU |]
-    public int[] storageDell;     //ALMACÉN   [| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU |]
-    public Semaphore mutexDell;
-    public Semaphore mutexHP;
-    public int compuNHP;
-    public int compuGPU_HP;
+    public int[] storage;     //ALMACÉN   [| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU |]
+    private int dayMS;
 
     //Variables to initiate simulation
-    public int[] workers; //Array de cuántos empleados contratar. [| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU | 5 assemblers | 6 PM | 7 Director |]
-    public List pMBList;
-    public List pCPUList;
-    public List pRAMList;
-    public List pPSUList;
-    public List pGPUList;
-    public List assemblerHPList;
+    public int[] workersHP; //Array, dice cuántos empleados contratar. [| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU | 5 assemblers|]
+    //Workers debe ser un arreglo que se use para exportar e importar la info al txt.
+    public int[] workersDell;
+    
+    
     /**
      * Creates new form mainMenu1
      */
     public mainMenu() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.pMBList=null;
+        this.storage= new int[5];
+        this.workersHP= new int[6];
+        for (int i = 0; i < workersHP.length; i++) {
+            workersHP[i]=1;
+        }
+        this.workersDell=workersHP;
+        this.dayMS=1000;
     }
 
     /**
@@ -61,10 +62,10 @@ public class mainMenu extends javax.swing.JFrame {
         Dell = new javax.swing.JButton();
         importTXT = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        daysMS = new javax.swing.JTextField();
+        fieldDaysMS = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        deadlineMS = new javax.swing.JTextField();
+        fieldDeadlineMS = new javax.swing.JTextField();
         exportTXT = new javax.swing.JButton();
         start = new javax.swing.JButton();
 
@@ -123,7 +124,12 @@ public class mainMenu extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(220, 223, 219));
         jLabel1.setText("Made by Hurtado, José & Ruiz, Joseph ");
 
-        daysMS.setText("1000");
+        fieldDaysMS.setText("1000");
+        fieldDaysMS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldDaysMSActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -133,10 +139,10 @@ public class mainMenu extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Days for Deadline (ms)");
 
-        deadlineMS.setText("1000");
-        deadlineMS.addActionListener(new java.awt.event.ActionListener() {
+        fieldDeadlineMS.setText("1000");
+        fieldDeadlineMS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deadlineMSActionPerformed(evt);
+                fieldDeadlineMSActionPerformed(evt);
             }
         });
 
@@ -187,11 +193,11 @@ public class mainMenu extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel2)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(daysMS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(fieldDaysMS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(deadlineMS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(fieldDeadlineMS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(58, 58, 58))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,11 +217,11 @@ public class mainMenu extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(daysMS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fieldDaysMS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(deadlineMS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fieldDeadlineMS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -297,9 +303,9 @@ public class mainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_importTXTActionPerformed
 
-    private void deadlineMSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deadlineMSActionPerformed
+    private void fieldDeadlineMSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldDeadlineMSActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_deadlineMSActionPerformed
+    }//GEN-LAST:event_fieldDeadlineMSActionPerformed
 
     private void exportTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportTXTActionPerformed
         // TODO add your handling code here:
@@ -307,17 +313,14 @@ public class mainMenu extends javax.swing.JFrame {
 
     private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
         start.setVisible(false);
-        Thread employee=null;
-        for (int companyNumber = 0; companyNumber < 2; companyNumber++) { //Itera en el tipo de compañía (0 HP, 1 DEll)
-            for (int typeWorker = 0 ; typeWorker < workers.length; typeWorker++) { //Itera por la cantidad de empleados distintos que existen
-                for (int workerQuantity = 0; workerQuantity < workers[typeWorker]; workerQuantity++) { //Itera por la cantidad de empleados de x tipo
-                    employee=hireEmployee(companyNumber, typeWorker); //Contrata un nuevo empleado
-                }
-            }
-        }
-        
+        Company dell= new Company("Dell", dayMS,  workersDell, storage, 15);
+        Company hp= new Company("HP", dayMS, workersHP, storage, 12);    
        
     }//GEN-LAST:event_startActionPerformed
+
+    private void fieldDaysMSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldDaysMSActionPerformed
+        dayMS=Integer.parseInt(fieldDaysMS.getText());
+    }//GEN-LAST:event_fieldDaysMSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -355,46 +358,14 @@ public class mainMenu extends javax.swing.JFrame {
         });
     }
     
-    public Thread hireEmployee(int companyNumber, int typeWorker) {
-        Thread employee=null;
-        int daysMSInt=Integer.parseInt(daysMS.getText());
-        if (companyNumber==0) { //Estamos en el caso de que contrataremos empleados para HP
-            
-            if (typeWorker==0) { //Estamos en el caso de que contrataremos MB productores
-                employee = new Productor(storageHP, 25, 0, 20, 1, 2*daysMSInt, mutexHP);
-            }
-            if (typeWorker==1) { //Estamos en el caso de que contrataremos CPU productores
-                employee = new Productor(storageHP, 20, 1, 26, 1, 2*daysMSInt, mutexHP);
-            }
-            if (typeWorker==2) { //Estamos en el caso de que contrataremos RAM productores
-                employee = new Productor(storageHP, 55, 2, 40, 3, daysMSInt, mutexHP);
-            }
-            if (typeWorker==3) { //Estamos en el caso de que contrataremos PSU productores
-                employee = new Productor(storageHP, 35, 3, 16, 3, daysMSInt, mutexHP);
-            }
-            if (typeWorker==4) { //Estamos en el caso de que contrataremos GPU productores
-                employee = new Productor(storageHP, 10, 4, 34, 1, 3*daysMSInt, mutexHP);
-            }
-            if (typeWorker==5) { //Estamos en el caso de que contrataremos un ensamblador
-                employee = new Assembler(storageHP, compuNHP, compuGPU_HP, 1, 1, 2, 4, 3, 2, 2*daysMSInt, mutexHP);
-            }
-            if (typeWorker==6) { //Estamos en el caso de que contrataremos un PM
-                employee = new ProjectManager(20, 40, 0, startTime);
-            }
-//            if (typeWorker==7) { //Estamos en el caso de que contrataremos un director
-//                employee = new Assembler(storageHP, compuNHP, compuGPU_HP, 1, 1, 2, 4, 3, 2, 2*daysMSInt, mutexHP);
-//            }
-        }
-        return employee;
-    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Dell;
     private javax.swing.JButton HP;
-    private javax.swing.JTextField daysMS;
-    private javax.swing.JTextField deadlineMS;
     private javax.swing.JButton exportTXT;
+    private javax.swing.JTextField fieldDaysMS;
+    private javax.swing.JTextField fieldDeadlineMS;
     private javax.swing.JButton importTXT;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

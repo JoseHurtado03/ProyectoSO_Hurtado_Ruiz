@@ -101,12 +101,12 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="daysMS" min="-2" max="-2" attributes="0"/>
+                                              <Component id="fieldDaysMS" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="deadlineMS" min="-2" max="-2" attributes="0"/>
+                                              <Component id="fieldDeadlineMS" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -136,12 +136,12 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="daysMS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fieldDaysMS" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="deadlineMS" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fieldDeadlineMS" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -253,10 +253,13 @@
                 <Property name="text" type="java.lang.String" value="Made by Hurtado, Jos&#xe9; &amp; Ruiz, Joseph "/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="daysMS">
+            <Component class="javax.swing.JTextField" name="fieldDaysMS">
               <Properties>
                 <Property name="text" type="java.lang.String" value="1000"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldDaysMSActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
@@ -280,12 +283,12 @@
                 <Property name="text" type="java.lang.String" value="Days for Deadline (ms)"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="deadlineMS">
+            <Component class="javax.swing.JTextField" name="fieldDeadlineMS">
               <Properties>
                 <Property name="text" type="java.lang.String" value="1000"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deadlineMSActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldDeadlineMSActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="exportTXT">

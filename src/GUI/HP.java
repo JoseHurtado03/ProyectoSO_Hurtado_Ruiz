@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import proyecto1_so_hurtado_ruiz.Main;
+
 /**
  *
  * @author josep
@@ -380,12 +382,7 @@ public class HP extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         this.setVisible(false);
-        if (menu==null) {
-            menu=new mainMenu();
-            menu.setVisible(true);
-        } else {
-            menu.setVisible(true);
-        }
+        Main.mainGUI.setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
 
     /**
