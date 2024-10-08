@@ -16,7 +16,7 @@ public class Main {
         int[] storageHP = new int[5];     //ALMACÉN   [|0 motherBoard| 1 CPU | 2 RAM | 3 PSU | 4 GPU |]
         int compuNHP = 0;
         int compuGPU_HP = 0;
-        
+        int daysCounter = 20;             //Contador de los días que faltan para entregar las computadoras
         
         List pMBList= new List();
         List pCPUList= new List();
@@ -34,7 +34,8 @@ public class Main {
         Productor GPU = new Productor(storageHP, 10, 4, 34, 1, 3000, mutexHP);
         
         Assembler assemblerHP = new Assembler(storageHP, compuNHP, compuGPU_HP, 1, 1, 2, 4, 3, 2, 2000, mutexHP);
-        ProjectManager pmHP= new ProjectManager(20, 40, 0, startTime);
+        ProjectManager pmHP= new ProjectManager(daysCounter, 40, 0, startTime);
+        Director director = new Director(daysCounter, compuNHP, compuGPU_HP, 90, 140, pmHP, 60);
         
 //        pMBList.addEnd(motherBoard);
 //        pMBList.addEnd(motherBoard2);
