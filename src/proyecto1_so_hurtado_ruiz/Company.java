@@ -19,7 +19,6 @@ public class Company {
     private Semaphore mutex; 
     private int producedPC;
     private int producedGPU_PC;
-    
     //Array de listas de empleados contratados por tipo
     private List pMBList;
     private List pCPUList;
@@ -33,7 +32,7 @@ public class Company {
     private Director director;
     private int[] storage;
     private int maxManufacturers;
-    long startTime;
+    private long startTime;
 
     public Company(String name, int dayMS, int[] starterList, int[] storage, int maxManufacturers) {
         this.name = name;
@@ -46,8 +45,8 @@ public class Company {
         this.pPSUList = new List();
         this.pGPUList = new List();
         this.assemblerList = new List();
-        this.pm = new ProjectManager(20, 40, 0, this.startTime);  //¡¡Los días restantes deben estar en una variable!!
-        this.director= new Director(20, this.producedPC, this.producedGPU_PC, 90, 140, this.pm, 60);
+        this.pm = new ProjectManager(20, 40, 0, this.startTime);                                     //¡¡Los días restantes deben estar en una variable!!
+        this.director= new Director(20, this.producedPC, this.producedGPU_PC, 90, 140, this.pm, 60); //¡¡Los días restantes deben estar en una variable!!
         this.storage = new int[5];
         this.workersList = new List[6];
         for (int i = 0; i < workersList.length; i++) {

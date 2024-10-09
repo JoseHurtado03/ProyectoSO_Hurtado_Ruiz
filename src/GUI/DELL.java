@@ -44,27 +44,27 @@ public class DELL extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        fieldTotalWorkers = new javax.swing.JTextField();
         jButton14 = new javax.swing.JButton();
+        fieldTotalWorkers1 = new javax.swing.JTextField();
+        jButton27 = new javax.swing.JButton();
+        numMBM = new javax.swing.JTextField();
+        jButton15 = new javax.swing.JButton();
+        numCPU = new javax.swing.JTextField();
+        jButton16 = new javax.swing.JButton();
+        numRAM = new javax.swing.JTextField();
+        jButton18 = new javax.swing.JButton();
+        numPSU = new javax.swing.JTextField();
+        jButton17 = new javax.swing.JButton();
+        numGPU = new javax.swing.JTextField();
+        jButton20 = new javax.swing.JButton();
+        numAssembler = new javax.swing.JTextField();
+        jButton19 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -166,78 +166,6 @@ public class DELL extends javax.swing.JFrame {
         jLabel14.setText("Assemblers");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
 
-        jTextField2.setText("0");
-        jTextField2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 35, 30));
-
-        jTextField3.setText("0");
-        jTextField3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 35, 30));
-
-        jTextField4.setText("0");
-        jTextField4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 35, 30));
-
-        jTextField5.setText("0");
-        jTextField5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 35, 30));
-
-        jTextField6.setText("0");
-        jTextField6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 35, 30));
-
-        jTextField7.setText("0");
-        jTextField7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 35, 30));
-
-        jButton1.setText("+");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, -1, 30));
-
-        jButton2.setText("+");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, 30));
-
-        jButton3.setText("+");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, -1, 30));
-
-        jButton4.setText("+");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, 30));
-
-        jButton5.setText("+");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, -1, 30));
-
-        jButton6.setText("+");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, -1, 30));
-
         jButton7.setText("-");
         jButton7.setToolTipText("-");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -292,18 +220,6 @@ public class DELL extends javax.swing.JFrame {
         });
         jPanel2.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, -1, 30));
 
-        jButton13.setText("+");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, 30));
-
-        fieldTotalWorkers.setText("0");
-        fieldTotalWorkers.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(fieldTotalWorkers, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 35, 30));
-
         jButton14.setText("-");
         jButton14.setToolTipText("-");
         jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -312,6 +228,90 @@ public class DELL extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, 30));
+
+        fieldTotalWorkers1.setText("0");
+        fieldTotalWorkers1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(fieldTotalWorkers1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 35, 30));
+
+        jButton27.setText("+");
+        jButton27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton27ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, 30));
+
+        numMBM.setText("0");
+        numMBM.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(numMBM, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 35, 30));
+
+        jButton15.setText("+");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, -1, 30));
+
+        numCPU.setText("0");
+        numCPU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(numCPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 35, 30));
+
+        jButton16.setText("+");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, 30));
+
+        numRAM.setText("0");
+        numRAM.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(numRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 35, 30));
+
+        jButton18.setText("+");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, 30));
+
+        numPSU.setText("0");
+        numPSU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(numPSU, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 35, 30));
+
+        jButton17.setText("+");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, -1, 30));
+
+        numGPU.setText("0");
+        numGPU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(numGPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 35, 30));
+
+        jButton20.setText("+");
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, -1, 30));
+
+        numAssembler.setText("0");
+        numAssembler.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(numAssembler, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 35, 30));
+
+        jButton19.setText("+");
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, -1, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 44, 360, 370));
 
@@ -513,30 +513,6 @@ public class DELL extends javax.swing.JFrame {
         
     }//GEN-LAST:event_backButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -561,13 +537,51 @@ public class DELL extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton12ActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13ActionPerformed
-
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+        int num = Integer.parseInt(fieldTotalWorkers1.getText());
+        num++;
+        fieldTotalWorkers1.setText(Integer.toString(num));
+    }//GEN-LAST:event_jButton27ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        int num = Integer.parseInt(numMBM.getText());
+        num++;
+        numMBM.setText(Integer.toString(num));
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        int num = Integer.parseInt(numCPU.getText());
+        num++;
+        numCPU.setText(Integer.toString(num));
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        int num = Integer.parseInt(numRAM.getText());
+        num++;
+        numRAM.setText(Integer.toString(num));
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        int num = Integer.parseInt(numPSU.getText());
+        num++;
+        numPSU.setText(Integer.toString(num));
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        int num = Integer.parseInt(numGPU.getText());
+        num++;
+        numGPU.setText(Integer.toString(num));
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        int num = Integer.parseInt(numAssembler.getText());
+        num++;
+        numAssembler.setText(Integer.toString(num));
+    }//GEN-LAST:event_jButton19ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -625,18 +639,18 @@ public class DELL extends javax.swing.JFrame {
     private javax.swing.JLabel QuantityRAM;
     private javax.swing.JLabel QuantityRAM1;
     private javax.swing.JButton backButton;
-    private javax.swing.JTextField fieldTotalWorkers;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField fieldTotalWorkers1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton27;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
@@ -668,11 +682,11 @@ public class DELL extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField numAssembler;
+    private javax.swing.JTextField numCPU;
+    private javax.swing.JTextField numGPU;
+    private javax.swing.JTextField numMBM;
+    private javax.swing.JTextField numPSU;
+    private javax.swing.JTextField numRAM;
     // End of variables declaration//GEN-END:variables
 }

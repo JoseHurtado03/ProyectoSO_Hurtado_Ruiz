@@ -102,12 +102,12 @@ public class HP extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
+        numMBM = new javax.swing.JTextField();
+        numCPU = new javax.swing.JTextField();
+        numRAM = new javax.swing.JTextField();
+        numAssembler = new javax.swing.JTextField();
+        numGPU = new javax.swing.JTextField();
+        numPSU = new javax.swing.JTextField();
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         jButton17 = new javax.swing.JButton();
@@ -541,29 +541,29 @@ public class HP extends javax.swing.JFrame {
         jLabel14.setText("Assemblers");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
 
-        jTextField8.setText("0");
-        jTextField8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 35, 30));
+        numMBM.setText("0");
+        numMBM.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(numMBM, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 35, 30));
 
-        jTextField9.setText("0");
-        jTextField9.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 35, 30));
+        numCPU.setText("0");
+        numCPU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(numCPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 35, 30));
 
-        jTextField10.setText("0");
-        jTextField10.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 35, 30));
+        numRAM.setText("0");
+        numRAM.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(numRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 35, 30));
 
-        jTextField11.setText("0");
-        jTextField11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 35, 30));
+        numAssembler.setText("0");
+        numAssembler.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(numAssembler, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 35, 30));
 
-        jTextField12.setText("0");
-        jTextField12.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 35, 30));
+        numGPU.setText("0");
+        numGPU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(numGPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 35, 30));
 
-        jTextField13.setText("0");
-        jTextField13.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 35, 30));
+        numPSU.setText("0");
+        numPSU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(numPSU, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 35, 30));
 
         jButton15.setText("+");
         jButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -776,27 +776,39 @@ public class HP extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        // TODO add your handling code here:
+        int num = Integer.parseInt(numMBM.getText());
+        num++;
+        numMBM.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        // TODO add your handling code here:
+        int num = Integer.parseInt(numCPU.getText());
+        num++;
+        numCPU.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        // TODO add your handling code here:
+        int num = Integer.parseInt(numPSU.getText());
+        num++;
+        numPSU.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        // TODO add your handling code here:
+        int num = Integer.parseInt(numRAM.getText());
+        num++;
+        numRAM.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        // TODO add your handling code here:
+        int num = Integer.parseInt(numAssembler.getText());
+        num++;
+        numAssembler.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        // TODO add your handling code here:
+        int num = Integer.parseInt(numGPU.getText());
+        num++;
+        numGPU.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
@@ -824,7 +836,9 @@ public class HP extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
-        // TODO add your handling code here:
+        int num = Integer.parseInt(fieldTotalWorkers1.getText());
+        num++;
+        fieldTotalWorkers1.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton27ActionPerformed
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
@@ -953,17 +967,17 @@ public class HP extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField numAssembler;
+    private javax.swing.JTextField numCPU;
+    private javax.swing.JTextField numGPU;
+    private javax.swing.JTextField numMBM;
+    private javax.swing.JTextField numPSU;
+    private javax.swing.JTextField numRAM;
     // End of variables declaration//GEN-END:variables
 }
