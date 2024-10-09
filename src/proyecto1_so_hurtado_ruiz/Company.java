@@ -20,7 +20,7 @@ public class Company {
     private int producedPC;
     private int producedGPU_PC;
     
-     //Array de listas de empleados contratados por tipo
+    //Array de listas de empleados contratados por tipo
     private List pMBList;
     private List pCPUList;
     private List pRAMList;
@@ -30,9 +30,10 @@ public class Company {
     private List[] workersList;
     
     private ProjectManager pm;
-//    private Director director;
+    private Director director;
     private int[] storage;
     private int maxManufacturers;
+    long startTime;
 
     public Company(String name, int dayMS, int[] starterList, int[] storage, int maxManufacturers) {
         this.name = name;
@@ -45,16 +46,17 @@ public class Company {
         this.pPSUList = new List();
         this.pGPUList = new List();
         this.assemblerList = new List();
-//        this.pm=new ProjectManager(maxManufacturers, maxManufacturers, maxManufacturers, maxManufacturers);
-//        this.director=new ProjectManager(maxManufacturers, maxManufacturers, maxManufacturers, maxManufacturers);
+        this.pm = new ProjectManager(20, 40, 0, this.startTime);  //¡¡Los días restantes deben estar en una variable!!
+        this.director= new Director(20, this.producedPC, this.producedGPU_PC, 90, 140, this.pm, 60);
         this.storage = new int[5];
         this.workersList = new List[6];
         for (int i = 0; i < workersList.length; i++) {
             workersList[i] = new List(); // Inicializa cada List
-    }
+        }
         this.maxManufacturers = maxManufacturers;
-        this.producedPC=0;
-        this.producedGPU_PC=0;
+        this.producedPC = 0;
+        this.producedGPU_PC = 0;
+        this.startTime = System.currentTimeMillis();
     }
     
     public void hireEmployee(int companyID, int dayMS) {
@@ -213,7 +215,4 @@ public class Company {
     public void setProducedGPU_PC(int producedGPU_PC) {
         this.producedGPU_PC = producedGPU_PC;
     }
-    
-    
-
 }

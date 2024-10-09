@@ -6,11 +6,10 @@ package proyecto1_so_hurtado_ruiz;
 
 /**
  *
- * @author josep
+ * @authors José Hurtado y Joseph Ruiz
  */
 public class TheNewMain {
     public static void main(String[] args) {
-
         Main.mainGUI.setVisible(true);
     }
 }

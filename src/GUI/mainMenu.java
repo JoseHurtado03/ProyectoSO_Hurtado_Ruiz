@@ -25,7 +25,7 @@ public class mainMenu extends javax.swing.JFrame {
     public int[] storage;     //ALMACÉN   [| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU |]
     private int dayMS;
 
-    //Variables to initiate simulation
+    //Variables para iniciar la simulación
     public int[] workersHP; //Array, dice cuántos empleados contratar. [| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU | 5 assemblers|]
     //Workers debe ser un arreglo que se use para exportar e importar la info al txt.
     public int[] workersDell;
