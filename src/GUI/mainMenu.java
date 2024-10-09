@@ -292,7 +292,7 @@ public class mainMenu extends javax.swing.JFrame {
     private void DellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DellActionPerformed
         this.setVisible(false);
         if (dellWindow==null) {
-            dellWindow=new DELL();
+            dellWindow=new DELL(Company company);
             dellWindow.setVisible(true);
         } else {
             dellWindow.setVisible(true);
