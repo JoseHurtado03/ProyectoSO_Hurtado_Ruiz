@@ -49,6 +49,9 @@ public class Company {
 //        this.director=new ProjectManager(maxManufacturers, maxManufacturers, maxManufacturers, maxManufacturers);
         this.storage = new int[5];
         this.workersList = new List[6];
+        for (int i = 0; i < workersList.length; i++) {
+            workersList[i] = new List(); // Inicializa cada List
+    }
         this.maxManufacturers = maxManufacturers;
         this.producedPC=0;
         this.producedGPU_PC=0;

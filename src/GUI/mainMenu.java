@@ -315,10 +315,10 @@ public class mainMenu extends javax.swing.JFrame {
 
     private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
         start.setVisible(false);
-        dell= new Company("Dell", dayMS,  workersDell, storage, 15);
-        dell.hireEmployee(1, dayMS);
-        //hp= new Company("HP", dayMS, workersHP, storage, 12);    
-        //hp.hireEmployee(0, dayMS);
+//        dell= new Company("Dell", dayMS,  workersDell, storage, 15);
+//        dell.hireEmployee(1, dayMS);
+        hp= new Company("HP", dayMS, workersHP, storage, 12);    
+        hp.hireEmployee(0, dayMS);
        
     }//GEN-LAST:event_startActionPerformed
 
