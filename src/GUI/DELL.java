@@ -11,7 +11,7 @@ import proyecto1_so_hurtado_ruiz.Company;
  * @author hvjos
  */
 public class DELL extends javax.swing.JFrame {
-    Company dell;
+    static Company dell;
     /**
      * Creates new form DELL
      * @param dell
@@ -727,7 +727,7 @@ public class DELL extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DELL().setVisible(true);
+                new DELL(dell).setVisible(true);
             }
         });
     }

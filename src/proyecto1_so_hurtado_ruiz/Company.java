@@ -56,9 +56,10 @@ public class Company {
     
     public void hireEmployee(int companyID, int dayMS) {
         for (int typeWorker = 0 ; typeWorker < getStarterList().length; typeWorker++) { //Itera por la cantidad de empleados distintos que existen
-            for (int workerQuantity = 0; workerQuantity < getStarterList()[typeWorker]; workerQuantity++) { //Itera por la cantidad de empleados de x tipo
+            for (int workerQuantity = 0; workerQuantity < getStarterList()[typeWorker]+1; workerQuantity++) { //Itera por la cantidad de empleados de x tipo
                 Thread employee=findEmployee(companyID, typeWorker, dayMS); //Contrata un nuevo empleado
-                getWorkersList()[typeWorker].addEnd(employee);
+                
+                workersList[typeWorker].addEnd(employee);
             }
         }
     }
