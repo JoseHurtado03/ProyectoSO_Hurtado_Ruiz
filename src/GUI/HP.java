@@ -839,14 +839,14 @@ public class HP extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        if (this.changeNumberEmployees(hpCompany.getpMBList(), 0, Main.mainGUI.dayMS)){
+        if (this.addNumberEmployees(hpCompany.getpMBList(), 0, Main.mainGUI.dayMS)){
             numMBM.setText(Integer.toString(hpCompany.getpMBList().getSize()));
         }    
         
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        if (this.changeNumberEmployees(hpCompany.getpCPUList(), 1, Main.mainGUI.dayMS)){
+        if (this.addNumberEmployees(hpCompany.getpCPUList(), 1, Main.mainGUI.dayMS)){
             numCPU.setText(Integer.toString(hpCompany.getpCPUList().getSize()));
         }
         
@@ -854,26 +854,26 @@ public class HP extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        if (this.changeNumberEmployees(hpCompany.getpPSUList(), 3, Main.mainGUI.dayMS)) {
+        if (this.addNumberEmployees(hpCompany.getpPSUList(), 3, Main.mainGUI.dayMS)) {
             numPSU.setText(Integer.toString(hpCompany.getpPSUList().getSize()));
         }
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        if (this.changeNumberEmployees(hpCompany.getpRAMList(), 2, Main.mainGUI.dayMS)) {
+        if (this.addNumberEmployees(hpCompany.getpRAMList(), 2, Main.mainGUI.dayMS)) {
             numRAM.setText(Integer.toString(hpCompany.getpRAMList().getSize()));
         }
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        if (this.changeNumberEmployees(hpCompany.getAssemblerList(), 5, Main.mainGUI.dayMS)) {
+        if (this.addNumberEmployees(hpCompany.getAssemblerList(), 5, Main.mainGUI.dayMS)) {
             numAssembler.setText(Integer.toString(hpCompany.getAssemblerList().getSize()));
         }
 
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        if (this.changeNumberEmployees(hpCompany.getpGPUList(), 4, Main.mainGUI.dayMS)) {
+        if (this.addNumberEmployees(hpCompany.getpGPUList(), 4, Main.mainGUI.dayMS)) {
          numGPU.setText(Integer.toString(hpCompany.getpGPUList().getSize()));   
         }
 
@@ -964,7 +964,7 @@ public class HP extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_numMBMActionPerformed
 
-    private boolean changeNumberEmployees(List typeEmployeeList, int typeWorker, int dayMS){
+    private boolean addNumberEmployees(List typeEmployeeList, int typeWorker, int dayMS){
         int nMBM = Integer.parseInt(numMBM.getText());
         int nCPU = Integer.parseInt(numCPU.getText());
         int nRAM = Integer.parseInt(numRAM.getText());
