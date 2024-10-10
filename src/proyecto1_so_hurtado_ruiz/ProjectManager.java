@@ -3,6 +3,7 @@ package proyecto1_so_hurtado_ruiz;
 
 import java.util.logging.Logger;
 import java.util.logging.Level;
+import javax.swing.JLabel;
 
 
 public class ProjectManager extends Thread{
@@ -12,16 +13,20 @@ public class ProjectManager extends Thread{
     private int discount;                   //Cantidad de salario que se le descuenta cuando lo ven viendo anime
     private long hoursCounter;
     private int dayMS;
+    private JLabel status;
+    private JLabel counter;
 
     private static final Logger logger = Logger.getLogger(Productor.class.getName());
     
-    public ProjectManager(int daysCounter, int salary, int discount, long hoursCounter, int dayMS) {
+    public ProjectManager(int daysCounter, int salary, int discount, long hoursCounter, int dayMS, JLabel status, JLabel counter) {
         this.daysCounter = daysCounter;
         this.isWatchingAnime = false;
         this.salary = salary;
         this.discount = discount;
         this.hoursCounter = hoursCounter;
         this.dayMS = dayMS;
+        this.status = status;
+        this.counter = counter;
     }
     
     @Override
@@ -32,17 +37,22 @@ public class ProjectManager extends Thread{
                 if (currentTime-getHoursCounter() < 0.667*dayMS){      //667ms es el equivalente a 16hrs (Si consideramos que 24hrs son 1000ms)
                     if (isIsWatchingAnime()){
                         this.setIsWatchingAnime(false);
+                        status.setText("Working");
                     }else{
                         this.setIsWatchingAnime(true);
+                        status.setText("Anime");
                     }
-                    System.out.println(currentTime-getHoursCounter());
+                    //System.out.println(currentTime-getHoursCounter());
                     int halfHour = ((21*dayMS)/1000);
                     sleep(halfHour);                                 //20,833ms es el equivalente a 30min (Si consideramos que 24hrs son 1000ms)
                 } else{
                     this.setIsWatchingAnime(false);
+                    status.setText("Working");
                     this.setHoursCounter(System.currentTimeMillis());
                     System.out.println("PASÓ UN DÍA");
                     daysCounter--;
+                    int days = Integer.parseInt(counter.getText())-1;
+                    counter.setText(Integer.toString(days));
                     int eightHours = ((332*dayMS)/1000);
                     sleep(eightHours);                                //333ms es el equivalente a 8hrs (Si consideramos que 24hrs son 1000ms)
                 }

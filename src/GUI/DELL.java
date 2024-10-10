@@ -179,27 +179,27 @@ public class DELL extends javax.swing.JFrame {
         });
         jPanel2.add(jButton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, 30));
 
-        numMBM.setText("0");
+        numMBM.setText("1");
         numMBM.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(numMBM, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 35, 30));
 
-        numCPU.setText("0");
+        numCPU.setText("1");
         numCPU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(numCPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 35, 30));
 
-        numRAM.setText("0");
+        numRAM.setText("1");
         numRAM.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(numRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 35, 30));
 
-        numPSU.setText("0");
+        numPSU.setText("1");
         numPSU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(numPSU, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 35, 30));
 
-        numGPU.setText("0");
+        numGPU.setText("1");
         numGPU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(numGPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 35, 30));
 
-        numAssembler.setText("0");
+        numAssembler.setText("1");
         numAssembler.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(numAssembler, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 35, 30));
 

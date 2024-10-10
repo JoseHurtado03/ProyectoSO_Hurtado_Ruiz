@@ -17,20 +17,21 @@ import proyecto1_so_hurtado_ruiz.Company;
  */
 public class mainMenu extends javax.swing.JFrame {
     //GUIs
-    private HP hpWindow;
-    private DELL dellWindow;
+    public static HP hpWindow;
+    public static DELL dellWindow;
     
     //General variables. Hp and Dell should have their own
     public long startTime;
-    public int[] storage;     //ALMACÉN   [| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU |]
+    public int[] storageHP;       //ALMACÉN   [| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU |]
+    public int[] storageDELL;     //ALMACÉN   [| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU |]
     private int dayMS;
 
     //Variables para iniciar la simulación
     public int[] workersHP; //Array, dice cuántos empleados contratar. [| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU | 5 assemblers|]
     //Workers debe ser un arreglo que se use para exportar e importar la info al txt.
     public int[] workersDell;
-    public Company dell;
-    public Company hp;
+    public static Company dell;
+    public  static Company hp;
     
     
     /**
@@ -39,13 +40,17 @@ public class mainMenu extends javax.swing.JFrame {
     public mainMenu() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.storage= new int[5];
+        this.storageHP= new int[5];
         this.workersHP= new int[6];
         for (int i = 0; i < workersHP.length; i++) {
             workersHP[i]=1;
         }
         this.workersDell=workersHP;
-        this.dayMS=1000;
+        this.dayMS= Integer.parseInt(fieldDaysMS.getText());
+        
+        hpWindow = new HP();
+        dellWindow = new DELL(dell);
+        
     }
 
     /**
@@ -284,7 +289,7 @@ public class mainMenu extends javax.swing.JFrame {
     private void HPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HPActionPerformed
         this.setVisible(false);
         if (hpWindow==null || hp==null) {
-            hpWindow=new HP();
+            //hpWindow=new HP();
             hpWindow.setVisible(true);
         } else {
             hpWindow.setVisible(true);
@@ -294,7 +299,7 @@ public class mainMenu extends javax.swing.JFrame {
     private void DellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DellActionPerformed
         this.setVisible(false);
         if (dellWindow==null || dell==null) {
-            dellWindow=new DELL(dell);
+            //dellWindow=new DELL(dell);
             dellWindow.setVisible(true);
         } else {
             dellWindow.setVisible(true);
@@ -315,15 +320,15 @@ public class mainMenu extends javax.swing.JFrame {
 
     private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
         start.setVisible(false);
-//        dell= new Company("Dell", dayMS,  workersDell, storage, 15);
+//        dell= new Company("Dell", dayMS,  workersDell, storageDELL, 15);
 //        dell.hireEmployee(1, dayMS);
-        hp= new Company("HP", dayMS, workersHP, storage, 12);    
+        hp= new Company("HP", dayMS, workersHP, storageHP, 12, hpWindow, dellWindow);    
         hp.hireEmployee(0, dayMS);
        
     }//GEN-LAST:event_startActionPerformed
 
     private void fieldDaysMSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldDaysMSActionPerformed
-        dayMS=Integer.parseInt(fieldDaysMS.getText());
+        //dayMS=Integer.parseInt(fieldDaysMS.getText());
     }//GEN-LAST:event_fieldDaysMSActionPerformed
 
     /**

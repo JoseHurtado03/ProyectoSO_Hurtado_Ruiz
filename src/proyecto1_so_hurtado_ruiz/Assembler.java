@@ -4,27 +4,36 @@ package proyecto1_so_hurtado_ruiz;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.concurrent.Semaphore;
+import javax.swing.JLabel;
+import javax.swing.JProgressBar;
 
 
 public class Assembler extends Thread{
-    int[] storage;            //Almacén en el que debe buscar los componentes
-    int computerStorage;      //Almacén donde colocará las computadoras normales listas
-    int computerGPUStorage;   //Almacén donde colocará las computadoras con GPU listas
-    int nMotherBoard;         //Cantidad que debe tomar de motherboards
-    int nCPU;                 //Cantidad que debe tomar de CPUs
-    int nRAM;                 //Cantidad que debe tomar de memorias RAM
-    int nPowerSupply;         //Cantidad que debe tomar de power supplies
-    int nGPU;                 //Cantidad que debe tomar de tarjetas gráficas
-    int counter;              //Contador para hacer una compu. con GPU por cada counter compu. normal
-    int compuCounter;         //Contador de cuantas compu. normales se deben hacer para luego hacer una con GPU
-    int salary;
-    int days;                 //Días que tarda en hacer una computadora
-    Semaphore mutex;
+    private int[] storage;            //Almacén en el que debe buscar los componentes
+    private int computerStorage;      //Almacén donde colocará las computadoras normales listas
+    private int computerGPUStorage;   //Almacén donde colocará las computadoras con GPU listas
+    private int nMotherBoard;         //Cantidad que debe tomar de motherboards
+    private int nCPU;                 //Cantidad que debe tomar de CPUs
+    private int nRAM;                 //Cantidad que debe tomar de memorias RAM
+    private int nPowerSupply;         //Cantidad que debe tomar de power supplies
+    private int nGPU;                 //Cantidad que debe tomar de tarjetas gráficas
+    private int counter;              //Contador para hacer una compu. con GPU por cada counter compu. normal
+    private int compuCounter;         //Contador de cuantas compu. normales se deben hacer para luego hacer una con GPU
+    private int salary;
+    private int days;                 //Días que tarda en hacer una computadora
+    private Semaphore mutex;
+    private JProgressBar bMB;
+    private JProgressBar bCPU;
+    private JProgressBar bRAM;
+    private JProgressBar bPSU;
+    private JProgressBar bGPU;
+    private JLabel nCompuI;
+    private JLabel gpuCompuI;
 
 
     private static final Logger logger = Logger.getLogger(Productor.class.getName());
-    
-    public Assembler(int[] storage, int computerStorage, int computerGPUStorage, int nMotherBoard, int nCPU, int nRAM, int nPowerSupply, int nGPU, int compuCounter, int days, Semaphore mutex) {
+
+    public Assembler(int[] storage, int computerStorage, int computerGPUStorage, int nMotherBoard, int nCPU, int nRAM, int nPowerSupply, int nGPU, int compuCounter, int days, Semaphore mutex, JProgressBar bMB, JProgressBar bCPU, JProgressBar bRAM, JProgressBar bPSU, JProgressBar bGPU, JLabel nCompuI, JLabel gpuCompuI) {
         this.storage = storage;
         this.computerStorage = computerStorage;
         this.computerGPUStorage = computerGPUStorage;
@@ -37,8 +46,17 @@ public class Assembler extends Thread{
         this.compuCounter = compuCounter;
         this.salary = 50;
         this.days = days;
-        this.mutex= mutex;
+        this.mutex = mutex;
+        this.bMB = bMB;
+        this.bCPU = bCPU;
+        this.bRAM = bRAM;
+        this.bPSU = bPSU;
+        this.bGPU = bGPU;
+        this.nCompuI = nCompuI;
+        this.gpuCompuI = gpuCompuI;
     }
+    
+    
     
     @Override
     public void run(){
@@ -86,18 +104,38 @@ public class Assembler extends Thread{
     
     public void buildCompuN(){
         storage[0] -= nMotherBoard;
+        bMB.setValue(bMB.getValue()-1);
+        
         storage[1] -= nCPU;
+        bCPU.setValue(bCPU.getValue()-1);
+        
         storage[2] -= nRAM;
+        bRAM.setValue(bRAM.getValue()-1);
+        
         storage[3] -= nPowerSupply;
+        bMB.setValue(bPSU.getValue()-1);
+        
         computerStorage++;
+        nCompuI.setText(Integer.toString(computerStorage));
     }
     
     public void buildCompuGPU(){
         storage[0] -= nMotherBoard;
+        bMB.setValue(bMB.getValue()-1);
+        
         storage[1] -= nCPU;
+        bCPU.setValue(bCPU.getValue()-1);
+        
         storage[2] -= nRAM;
+        bRAM.setValue(bRAM.getValue()-1);
+        
         storage[3] -= nPowerSupply;
+        bMB.setValue(bPSU.getValue()-1);
+        
         storage[4] -= nGPU;
+        bGPU.setValue(bGPU.getValue()-1);
+        
         computerGPUStorage ++;
+        gpuCompuI.setText(Integer.toString(computerGPUStorage));
     }
 }

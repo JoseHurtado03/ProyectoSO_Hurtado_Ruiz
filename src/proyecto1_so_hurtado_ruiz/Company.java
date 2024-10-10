@@ -5,7 +5,10 @@
 package proyecto1_so_hurtado_ruiz;
 
 import EDD.List;
+import GUI.DELL;
+import GUI.HP;
 import java.util.concurrent.Semaphore;
+import javax.swing.JLabel;
 
 /**
  *
@@ -33,8 +36,11 @@ public class Company {
     private int[] storage;
     private int maxManufacturers;
     private long startTime;
+    
+    private HP hpUX;
+    private DELL dellUX;
 
-    public Company(String name, int dayMS, int[] starterList, int[] storage, int maxManufacturers) {
+    public Company(String name, int dayMS, int[] starterList, int[] storage, int maxManufacturers, HP hpUX, DELL dellUX) {
         this.name = name;
         this.dayMS= dayMS;
         this.starterList = starterList;
@@ -45,8 +51,8 @@ public class Company {
         this.pPSUList = new List();
         this.pGPUList = new List();
         this.assemblerList = new List();
-        this.pm = new ProjectManager(20, 40, 0, this.startTime, this.dayMS);                         //¡¡Los días restantes deben estar en una variable!!
-        this.director= new Director(20, this.producedPC, this.producedGPU_PC, 90, 140, this.pm, 60, this.dayMS); //¡¡Los días restantes deben estar en una variable!!
+        this.pm = new ProjectManager(20, 40, 0, this.startTime, this.dayMS, hpUX.pmStatus, hpUX.currentsDays);                         //¡¡Los días restantes deben estar en una variable!!
+        this.director= new Director(20, this.producedPC, this.producedGPU_PC, 90, 140, this.pm, 60, this.dayMS, hpUX.dirStatus, hpUX.nCompuI, hpUX.gpuCompuI); //¡¡Los días restantes deben estar en una variable!!
         this.storage = new int[5];
         this.workersList = new List[6];
         for (int i = 0; i < workersList.length; i++) {
@@ -56,6 +62,8 @@ public class Company {
         this.producedPC = 0;
         this.producedGPU_PC = 0;
         this.startTime = System.currentTimeMillis();
+        this.hpUX = hpUX;
+        this.dellUX = dellUX;
     }
     
     public void hireEmployee(int companyID, int dayMS) {
@@ -73,42 +81,42 @@ public class Company {
         if (companyID==0) { //Estamos en el caso de que contrataremos empleados para HP
             
             if (typeWorker==0) { //Estamos en el caso de que contrataremos MB productores
-                employee = new Productor(getStorage(), 25, 0, 20, 1, 2*daysMS, getMutex());
+                employee = new Productor(getStorage(), 25, 0, 20, 1, 2*daysMS, getMutex(), hpUX.pbMB);
             }
             if (typeWorker==1) { //Estamos en el caso de que contrataremos CPU productores
-                employee = new Productor(getStorage(), 20, 1, 26, 1, 2*daysMS, getMutex());
+                employee = new Productor(getStorage(), 20, 1, 26, 1, 2*daysMS, getMutex(), hpUX.pbCPU);
             }
             if (typeWorker==2) { //Estamos en el caso de que contrataremos RAM productores
-                employee = new Productor(getStorage(), 55, 2, 40, 3, daysMS, getMutex());
+                employee = new Productor(getStorage(), 55, 2, 40, 3, daysMS, getMutex(), hpUX.pbRAM);
             }
             if (typeWorker==3) { //Estamos en el caso de que contrataremos PSU productores
-                employee = new Productor(getStorage(), 35, 3, 16, 3, daysMS, getMutex());
+                employee = new Productor(getStorage(), 35, 3, 16, 3, daysMS, getMutex(), hpUX.pbPSU);
             }
             if (typeWorker==4) { //Estamos en el caso de que contrataremos GPU productores
-                employee = new Productor(getStorage(), 10, 4, 34, 1, 3*daysMS, getMutex());
+                employee = new Productor(getStorage(), 10, 4, 34, 1, 3*daysMS, getMutex(), hpUX.pbGPU);
             }
             if (typeWorker==5) { //Estamos en el caso de que contrataremos un ensamblador
-                employee = new Assembler(getStorage(), getProducedPC(), getProducedGPU_PC(), 1, 1, 2, 4, 3, 2, 2*daysMS, getMutex());
+                employee = new Assembler(getStorage(), getProducedPC(), getProducedGPU_PC(), 1, 1, 2, 4, 3, 2, 2*daysMS, getMutex(), hpUX.pbMB, hpUX.pbCPU, hpUX.pbRAM, hpUX.pbPSU, hpUX.pbGPU, hpUX.nCompuI, hpUX.gpuCompuI);
             }
         } else if (companyID==1){ //Estamos en el caso de que contrataremos empleados para DELL
             
             if (typeWorker==0) { //Estamos en el caso de que contrataremos MB productores
-                employee = new Productor(getStorage(), 25, 0, 20, 1, 3*daysMS, getMutex());
+                //employee = new Productor(getStorage(), 25, 0, 20, 1, 3*daysMS, getMutex());
             }
             if (typeWorker==1) { //Estamos en el caso de que contrataremos CPU productores
-                employee = new Productor(getStorage(), 20, 1, 26, 1, 3*daysMS, getMutex());
+                //employee = new Productor(getStorage(), 20, 1, 26, 1, 3*daysMS, getMutex());
             }
             if (typeWorker==2) { //Estamos en el caso de que contrataremos RAM productores
-                employee = new Productor(getStorage(), 55, 2, 40, 3, daysMS, getMutex());
+                //employee = new Productor(getStorage(), 55, 2, 40, 3, daysMS, getMutex());
             }
             if (typeWorker==3) { //Estamos en el caso de que contrataremos PSU productores
-                employee = new Productor(getStorage(), 35, 3, 16, 3, daysMS, getMutex());
+                //employee = new Productor(getStorage(), 35, 3, 16, 3, daysMS, getMutex());
             }
             if (typeWorker==4) { //Estamos en el caso de que contrataremos GPU productores
-                employee = new Productor(getStorage(), 10, 4, 34, 1, 3*daysMS, getMutex());
+                //employee = new Productor(getStorage(), 10, 4, 34, 1, 3*daysMS, getMutex());
             }
             if (typeWorker==5) { //Estamos en el caso de que contrataremos un ensamblador
-                employee = new Assembler(getStorage(), getProducedPC(), getProducedGPU_PC(), 1, 1, 2, 4, 3, 2, 2*daysMS, getMutex());
+                //employee = new Assembler(getStorage(), getProducedPC(), getProducedGPU_PC(), 1, 1, 2, 4, 3, 2, 2*daysMS, getMutex());
             }
         } 
         return employee;

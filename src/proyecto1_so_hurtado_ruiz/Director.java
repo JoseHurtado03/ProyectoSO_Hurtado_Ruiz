@@ -4,6 +4,7 @@ package proyecto1_so_hurtado_ruiz;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 
 public class Director extends Thread{
     private int daysCounter;               //Contador de los días faltantes para entregar las computadoras.
@@ -15,10 +16,13 @@ public class Director extends Thread{
     private ProjectManager PM;             //PM de la empresa.
     private int salary;
     private int dayMS;
+    private JLabel status;
+    private JLabel nCompuI;
+    private JLabel gpuCompuI;
 
     private static final Logger logger = Logger.getLogger(Productor.class.getName());
 
-    public Director(int daysCounter, int compuN, int compuGPU, int priceCompuN, int priceCompuGPU, ProjectManager PM, int salary, int dayMS) {
+    public Director(int daysCounter, int compuN, int compuGPU, int priceCompuN, int priceCompuGPU, ProjectManager PM, int salary, int dayMS, JLabel status, JLabel nCompuI, JLabel gpuCompuI) {
         this.daysCounter = daysCounter;
         this.compuN = compuN;
         this.compuGPU = compuGPU;
@@ -28,6 +32,9 @@ public class Director extends Thread{
         this.income = 0;
         this.salary = salary;
         this.dayMS = dayMS;
+        this.status = status;
+        this.nCompuI = nCompuI;
+        this.gpuCompuI = gpuCompuI;
     }
     
     
@@ -65,11 +72,13 @@ public class Director extends Thread{
     }
     
     public void supervisePM(long startTime, long currentTime){
+        status.setText("Supervising");
         while (currentTime - startTime < ((25*dayMS)/1000)) {              //25ms es el equivalente a 35min, si consideramos 24hrs = 1000ms
             if (PM.isIsWatchingAnime()) {
                 PM.setDiscount(PM.getDiscount() + 100);
             }
         }
+        status.setText("Working");
     }
         
     public void deliverComputers(){
@@ -77,5 +86,7 @@ public class Director extends Thread{
         this.income += compuGPU * priceCompuGPU;
         compuN = 0;                                         //Vacía el almacén de computadoras normales.
         compuGPU = 0;                                       //Vacía el almacén de computadoras con GPU.
+        nCompuI.setText("0");
+        gpuCompuI.setText("0");
     }
 }

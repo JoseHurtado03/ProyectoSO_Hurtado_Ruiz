@@ -4,6 +4,7 @@ package proyecto1_so_hurtado_ruiz;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JProgressBar;
 
 public class Productor extends Thread{
     private int[] storage;                //Array del almacén
@@ -13,17 +14,19 @@ public class Productor extends Thread{
     private int productsQuantity;         //Cantidad de producto x que produce en...
     private int days;                     //days días. (1día = 1segundo = 1000ms)
     private Semaphore mutex;
+    private JProgressBar bar;
 
     private static final Logger logger = Logger.getLogger(Productor.class.getName());
 
-    public Productor(int[] storage, int storageLimit, int index, int salary, int productsQuantity, int days, Semaphore mutex) {
+    public Productor(int[] storage, int storageLimit, int index, int salary, int productsQuantity, int days, Semaphore mutex, JProgressBar bar) {
         this.storage = storage;
         this.storageLimit = storageLimit;
         this.index = index;
         this.salary = salary;
         this.productsQuantity = productsQuantity;
         this.days = days;
-        this.mutex= mutex;
+        this.mutex = mutex;
+        this.bar = bar;
     }
     
     @Override
@@ -38,6 +41,8 @@ public class Productor extends Thread{
                 if (storage[index] < storageLimit) {
                     mutex.acquire();
                     storage[index] += productsQuantity;
+                    int quant = bar.getValue()+1;
+                    bar.setValue(quant);
                     System.out.println("Producto añadido correctamente");       //Solo para debug
                     for (int i = 0; i < storage.length; i++) {                  //Solo para debug
                         System.out.println(storage[i]);
