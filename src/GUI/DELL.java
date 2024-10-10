@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package GUI;
+import javax.swing.JOptionPane;
 import proyecto1_so_hurtado_ruiz.Main;
 import proyecto1_so_hurtado_ruiz.Company;
 /**
@@ -18,7 +19,7 @@ public class DELL extends javax.swing.JFrame {
      */
     public DELL(Company dell) {
         initComponents();
-        //this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
         //this.dell = dell;
         //fieldTotalWorkers.setText(String.valueOf(dell.getWorkersList()[0].getSize()));
 
@@ -44,27 +45,27 @@ public class DELL extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
         fieldTotalWorkers1 = new javax.swing.JTextField();
         jButton27 = new javax.swing.JButton();
         numMBM = new javax.swing.JTextField();
-        jButton15 = new javax.swing.JButton();
         numCPU = new javax.swing.JTextField();
-        jButton16 = new javax.swing.JButton();
         numRAM = new javax.swing.JTextField();
-        jButton18 = new javax.swing.JButton();
         numPSU = new javax.swing.JTextField();
-        jButton17 = new javax.swing.JButton();
         numGPU = new javax.swing.JTextField();
-        jButton20 = new javax.swing.JButton();
         numAssembler = new javax.swing.JTextField();
+        jButton28 = new javax.swing.JButton();
+        jButton21 = new javax.swing.JButton();
+        jButton22 = new javax.swing.JButton();
+        jButton23 = new javax.swing.JButton();
+        jButton24 = new javax.swing.JButton();
+        jButton25 = new javax.swing.JButton();
+        jButton26 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
+        jButton20 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
+        jButton18 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -166,70 +167,7 @@ public class DELL extends javax.swing.JFrame {
         jLabel14.setText("Assemblers");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
 
-        jButton7.setText("-");
-        jButton7.setToolTipText("-");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, -1, 30));
-
-        jButton8.setText("-");
-        jButton8.setToolTipText("-");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, -1, 30));
-
-        jButton9.setText("-");
-        jButton9.setToolTipText("-");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, -1, 30));
-
-        jButton10.setText("-");
-        jButton10.setToolTipText("-");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, -1, 30));
-
-        jButton11.setText("-");
-        jButton11.setToolTipText("-");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, -1, 30));
-
-        jButton12.setText("-");
-        jButton12.setToolTipText("-");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, -1, 30));
-
-        jButton14.setText("-");
-        jButton14.setToolTipText("-");
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, 30));
-
-        fieldTotalWorkers1.setText("0");
+        fieldTotalWorkers1.setText("15");
         fieldTotalWorkers1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(fieldTotalWorkers1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 35, 30));
 
@@ -245,17 +183,88 @@ public class DELL extends javax.swing.JFrame {
         numMBM.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(numMBM, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 35, 30));
 
-        jButton15.setText("+");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, -1, 30));
-
         numCPU.setText("0");
         numCPU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(numCPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 35, 30));
+
+        numRAM.setText("0");
+        numRAM.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(numRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 35, 30));
+
+        numPSU.setText("0");
+        numPSU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(numPSU, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 35, 30));
+
+        numGPU.setText("0");
+        numGPU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(numGPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 35, 30));
+
+        numAssembler.setText("0");
+        numAssembler.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.add(numAssembler, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 35, 30));
+
+        jButton28.setText("-");
+        jButton28.setToolTipText("-");
+        jButton28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton28ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, 30));
+
+        jButton21.setText("-");
+        jButton21.setToolTipText("-");
+        jButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton21ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, -1, 30));
+
+        jButton22.setText("-");
+        jButton22.setToolTipText("-");
+        jButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton22ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, -1, 30));
+
+        jButton23.setText("-");
+        jButton23.setToolTipText("-");
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, -1, 30));
+
+        jButton24.setText("-");
+        jButton24.setToolTipText("-");
+        jButton24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton24ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, -1, 30));
+
+        jButton25.setText("-");
+        jButton25.setToolTipText("-");
+        jButton25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton25ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, -1, 30));
+
+        jButton26.setText("-");
+        jButton26.setToolTipText("-");
+        jButton26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton26ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, -1, 30));
 
         jButton16.setText("+");
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -265,33 +274,13 @@ public class DELL extends javax.swing.JFrame {
         });
         jPanel2.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, 30));
 
-        numRAM.setText("0");
-        numRAM.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(numRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 35, 30));
-
-        jButton18.setText("+");
-        jButton18.addActionListener(new java.awt.event.ActionListener() {
+        jButton19.setText("+");
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton18ActionPerformed(evt);
+                jButton19ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, 30));
-
-        numPSU.setText("0");
-        numPSU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(numPSU, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 35, 30));
-
-        jButton17.setText("+");
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, -1, 30));
-
-        numGPU.setText("0");
-        numGPU.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(numGPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 35, 30));
+        jPanel2.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, -1, 30));
 
         jButton20.setText("+");
         jButton20.addActionListener(new java.awt.event.ActionListener() {
@@ -301,17 +290,29 @@ public class DELL extends javax.swing.JFrame {
         });
         jPanel2.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, -1, 30));
 
-        numAssembler.setText("0");
-        numAssembler.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel2.add(numAssembler, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 35, 30));
-
-        jButton19.setText("+");
-        jButton19.addActionListener(new java.awt.event.ActionListener() {
+        jButton17.setText("+");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton19ActionPerformed(evt);
+                jButton17ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, -1, 30));
+        jPanel2.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, -1, 30));
+
+        jButton18.setText("+");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, 30));
+
+        jButton15.setText("+");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, -1, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 44, 360, 370));
 
@@ -513,75 +514,189 @@ public class DELL extends javax.swing.JFrame {
         
     }//GEN-LAST:event_backButtonActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
-
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
-
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton14ActionPerformed
-
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
         int num = Integer.parseInt(fieldTotalWorkers1.getText());
         num++;
         fieldTotalWorkers1.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton27ActionPerformed
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton28ActionPerformed
+
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         int num = Integer.parseInt(numMBM.getText());
-        num++;
+        if (num > 1){
+            num--;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
+        }
         numMBM.setText(Integer.toString(num));
-    }//GEN-LAST:event_jButton15ActionPerformed
+    }//GEN-LAST:event_jButton21ActionPerformed
+
+    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+        int num = Integer.parseInt(numCPU.getText());
+        if (num > 1){
+            num--;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
+        }
+        numCPU.setText(Integer.toString(num));
+    }//GEN-LAST:event_jButton22ActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        int num = Integer.parseInt(numRAM.getText());
+        if (num > 1){
+            num--;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
+        }
+        numRAM.setText(Integer.toString(num));
+    }//GEN-LAST:event_jButton23ActionPerformed
+
+    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+        int num = Integer.parseInt(numPSU.getText());
+        if (num > 1){
+            num--;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
+        }
+        numPSU.setText(Integer.toString(num));
+    }//GEN-LAST:event_jButton24ActionPerformed
+
+    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+        int num = Integer.parseInt(numGPU.getText());
+        if (num > 1){
+            num--;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
+        }
+        numGPU.setText(Integer.toString(num));
+    }//GEN-LAST:event_jButton25ActionPerformed
+
+    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+        int num = Integer.parseInt(numAssembler.getText());
+        if (num > 1){
+            num--;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
+        }
+        numAssembler.setText(Integer.toString(num));
+    }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        int num = Integer.parseInt(numCPU.getText());
-        num++;
-        numCPU.setText(Integer.toString(num));
+        int nMBM = Integer.parseInt(numMBM.getText());
+        int nCPU = Integer.parseInt(numCPU.getText());
+        int nRAM = Integer.parseInt(numRAM.getText());
+        int nPSU = Integer.parseInt(numPSU.getText());
+        int nGPU = Integer.parseInt(numGPU.getText());
+        int nAssemb = Integer.parseInt(numAssembler.getText());
+        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
+        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
+        if (currentQWorkers < maxWorkers){
+            int num = Integer.parseInt(numCPU.getText());
+            num++;
+            numCPU.setText(Integer.toString(num));
+        } else{
+            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+        }
     }//GEN-LAST:event_jButton16ActionPerformed
 
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        int num = Integer.parseInt(numRAM.getText());
-        num++;
-        numRAM.setText(Integer.toString(num));
-    }//GEN-LAST:event_jButton18ActionPerformed
-
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        int num = Integer.parseInt(numPSU.getText());
-        num++;
-        numPSU.setText(Integer.toString(num));
-    }//GEN-LAST:event_jButton17ActionPerformed
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        int nMBM = Integer.parseInt(numMBM.getText());
+        int nCPU = Integer.parseInt(numCPU.getText());
+        int nRAM = Integer.parseInt(numRAM.getText());
+        int nPSU = Integer.parseInt(numPSU.getText());
+        int nGPU = Integer.parseInt(numGPU.getText());
+        int nAssemb = Integer.parseInt(numAssembler.getText());
+        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
+        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
+        if (currentQWorkers < maxWorkers){
+            int num = Integer.parseInt(numAssembler.getText());
+            num++;
+            numAssembler.setText(Integer.toString(num));
+        } else{
+            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+        }
+    }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        int num = Integer.parseInt(numGPU.getText());
-        num++;
-        numGPU.setText(Integer.toString(num));
+        int nMBM = Integer.parseInt(numMBM.getText());
+        int nCPU = Integer.parseInt(numCPU.getText());
+        int nRAM = Integer.parseInt(numRAM.getText());
+        int nPSU = Integer.parseInt(numPSU.getText());
+        int nGPU = Integer.parseInt(numGPU.getText());
+        int nAssemb = Integer.parseInt(numAssembler.getText());
+        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
+        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
+        if (currentQWorkers < maxWorkers){
+            int num = Integer.parseInt(numGPU.getText());
+            num++;
+            numGPU.setText(Integer.toString(num));
+        } else{
+            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+        }
     }//GEN-LAST:event_jButton20ActionPerformed
 
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        int num = Integer.parseInt(numAssembler.getText());
-        num++;
-        numAssembler.setText(Integer.toString(num));
-    }//GEN-LAST:event_jButton19ActionPerformed
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        int nMBM = Integer.parseInt(numMBM.getText());
+        int nCPU = Integer.parseInt(numCPU.getText());
+        int nRAM = Integer.parseInt(numRAM.getText());
+        int nPSU = Integer.parseInt(numPSU.getText());
+        int nGPU = Integer.parseInt(numGPU.getText());
+        int nAssemb = Integer.parseInt(numAssembler.getText());
+        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
+        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
+        if (currentQWorkers < maxWorkers){
+            int num = Integer.parseInt(numPSU.getText());
+            num++;
+            numPSU.setText(Integer.toString(num));
+        } else{
+            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+        }
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        int nMBM = Integer.parseInt(numMBM.getText());
+        int nCPU = Integer.parseInt(numCPU.getText());
+        int nRAM = Integer.parseInt(numRAM.getText());
+        int nPSU = Integer.parseInt(numPSU.getText());
+        int nGPU = Integer.parseInt(numGPU.getText());
+        int nAssemb = Integer.parseInt(numAssembler.getText());
+        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
+        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
+        if (currentQWorkers < maxWorkers){
+            int num = Integer.parseInt(numRAM.getText());
+            num++;
+            numRAM.setText(Integer.toString(num));
+        } else{
+            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+        }
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        int nMBM = Integer.parseInt(numMBM.getText());
+        int nCPU = Integer.parseInt(numCPU.getText());
+        int nRAM = Integer.parseInt(numRAM.getText());
+        int nPSU = Integer.parseInt(numPSU.getText());
+        int nGPU = Integer.parseInt(numGPU.getText());
+        int nAssemb = Integer.parseInt(numAssembler.getText());
+        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
+        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
+        if (currentQWorkers < maxWorkers){
+            int num = Integer.parseInt(numMBM.getText());
+            num++;
+            numMBM.setText(Integer.toString(num));
+        } else{
+            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+        }
+    }//GEN-LAST:event_jButton15ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -640,20 +755,20 @@ public class DELL extends javax.swing.JFrame {
     private javax.swing.JLabel QuantityRAM1;
     private javax.swing.JButton backButton;
     private javax.swing.JTextField fieldTotalWorkers1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
+    private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton24;
+    private javax.swing.JButton jButton25;
+    private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton jButton28;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

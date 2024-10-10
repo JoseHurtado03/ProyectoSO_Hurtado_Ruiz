@@ -45,8 +45,8 @@ public class Company {
         this.pPSUList = new List();
         this.pGPUList = new List();
         this.assemblerList = new List();
-        this.pm = new ProjectManager(20, 40, 0, this.startTime);                                     //¡¡Los días restantes deben estar en una variable!!
-        this.director= new Director(20, this.producedPC, this.producedGPU_PC, 90, 140, this.pm, 60); //¡¡Los días restantes deben estar en una variable!!
+        this.pm = new ProjectManager(20, 40, 0, this.startTime, this.dayMS);                         //¡¡Los días restantes deben estar en una variable!!
+        this.director= new Director(20, this.producedPC, this.producedGPU_PC, 90, 140, this.pm, 60, this.dayMS); //¡¡Los días restantes deben estar en una variable!!
         this.storage = new int[5];
         this.workersList = new List[6];
         for (int i = 0; i < workersList.length; i++) {
@@ -90,7 +90,27 @@ public class Company {
             if (typeWorker==5) { //Estamos en el caso de que contrataremos un ensamblador
                 employee = new Assembler(getStorage(), getProducedPC(), getProducedGPU_PC(), 1, 1, 2, 4, 3, 2, 2*daysMS, getMutex());
             }
-        }
+        } else if (companyID==1){ //Estamos en el caso de que contrataremos empleados para DELL
+            
+            if (typeWorker==0) { //Estamos en el caso de que contrataremos MB productores
+                employee = new Productor(getStorage(), 25, 0, 20, 1, 3*daysMS, getMutex());
+            }
+            if (typeWorker==1) { //Estamos en el caso de que contrataremos CPU productores
+                employee = new Productor(getStorage(), 20, 1, 26, 1, 3*daysMS, getMutex());
+            }
+            if (typeWorker==2) { //Estamos en el caso de que contrataremos RAM productores
+                employee = new Productor(getStorage(), 55, 2, 40, 3, daysMS, getMutex());
+            }
+            if (typeWorker==3) { //Estamos en el caso de que contrataremos PSU productores
+                employee = new Productor(getStorage(), 35, 3, 16, 3, daysMS, getMutex());
+            }
+            if (typeWorker==4) { //Estamos en el caso de que contrataremos GPU productores
+                employee = new Productor(getStorage(), 10, 4, 34, 1, 3*daysMS, getMutex());
+            }
+            if (typeWorker==5) { //Estamos en el caso de que contrataremos un ensamblador
+                employee = new Assembler(getStorage(), getProducedPC(), getProducedGPU_PC(), 1, 1, 2, 4, 3, 2, 2*daysMS, getMutex());
+            }
+        } 
         return employee;
     }
     

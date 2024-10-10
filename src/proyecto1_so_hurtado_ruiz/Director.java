@@ -14,10 +14,11 @@ public class Director extends Thread{
     private int income;                    //Ingresos por venta de computadoras.
     private ProjectManager PM;             //PM de la empresa.
     private int salary;
+    private int dayMS;
 
     private static final Logger logger = Logger.getLogger(Productor.class.getName());
 
-    public Director(int daysCounter, int compuN, int compuGPU, int priceCompuN, int priceCompuGPU, ProjectManager PM, int salary) {
+    public Director(int daysCounter, int compuN, int compuGPU, int priceCompuN, int priceCompuGPU, ProjectManager PM, int salary, int dayMS) {
         this.daysCounter = daysCounter;
         this.compuN = compuN;
         this.compuGPU = compuGPU;
@@ -26,6 +27,7 @@ public class Director extends Thread{
         this.PM = PM;
         this.income = 0;
         this.salary = salary;
+        this.dayMS = dayMS;
     }
     
     
@@ -39,7 +41,7 @@ public class Director extends Thread{
                     long startTime = System.currentTimeMillis();
                     long currentTime = System.currentTimeMillis();
                     this.supervisePM(startTime, currentTime);           //Supervisa al PM
-                    sleep(1000-(random+25));                            //Duerme el código por el tiempo restante del día
+                    sleep(dayMS-(random+((25*dayMS)/1000)));            //Duerme el código por el tiempo restante del día
                 } catch (InterruptedException e) {
                     logger.log(Level.SEVERE, "Thread interrupted", e);
                 }
@@ -48,7 +50,7 @@ public class Director extends Thread{
                 try {
                     this.deliverComputers();             //Entrega las computadoras listas y actualiza la ganancia.
                     daysCounter = 20;                    //Reinicia el contador de días para la entrega.
-                    sleep(998);                          //Todo lo anterior lo hace en un día = 1000ms.
+                    sleep(dayMS);                        //Todo lo anterior lo hace en un día = 1000ms.
                 } catch (InterruptedException e) {
                     logger.log(Level.SEVERE, "Thread interrupted", e);
                 }
@@ -58,11 +60,12 @@ public class Director extends Thread{
     
     public int generateRandomNum(){
         Random random = new Random();
-        return random.nextInt(976);
+        int revisionTime = (25*dayMS)/1000;
+        return random.nextInt(dayMS-revisionTime);
     }
     
     public void supervisePM(long startTime, long currentTime){
-        while (currentTime - startTime < 25) {              //25ms es el equivalente a 35min, si consideramos 24hrs = 1000ms
+        while (currentTime - startTime < ((25*dayMS)/1000)) {              //25ms es el equivalente a 35min, si consideramos 24hrs = 1000ms
             if (PM.isIsWatchingAnime()) {
                 PM.setDiscount(PM.getDiscount() + 100);
             }

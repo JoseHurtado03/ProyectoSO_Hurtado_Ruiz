@@ -4,6 +4,7 @@
  */
 package GUI;
 
+import javax.swing.JOptionPane;
 import proyecto1_so_hurtado_ruiz.Main;
 
 public class HP extends javax.swing.JFrame {
@@ -675,8 +676,13 @@ public class HP extends javax.swing.JFrame {
         });
         jPanel2.add(jButton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, 30));
 
-        fieldTotalWorkers1.setText("0");
+        fieldTotalWorkers1.setText("12");
         fieldTotalWorkers1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        fieldTotalWorkers1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldTotalWorkers1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(fieldTotalWorkers1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 35, 30));
 
         jButton28.setText("-");
@@ -776,63 +782,177 @@ public class HP extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        int num = Integer.parseInt(numMBM.getText());
-        num++;
-        numMBM.setText(Integer.toString(num));
+        int nMBM = Integer.parseInt(numMBM.getText());
+        int nCPU = Integer.parseInt(numCPU.getText());
+        int nRAM = Integer.parseInt(numRAM.getText());
+        int nPSU = Integer.parseInt(numPSU.getText());
+        int nGPU = Integer.parseInt(numGPU.getText());
+        int nAssemb = Integer.parseInt(numAssembler.getText());
+        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
+        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
+        if (currentQWorkers < maxWorkers){
+            int num = Integer.parseInt(numMBM.getText());
+            num++;
+            numMBM.setText(Integer.toString(num));
+        } else{
+            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+        }
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        int num = Integer.parseInt(numCPU.getText());
-        num++;
-        numCPU.setText(Integer.toString(num));
+        int nMBM = Integer.parseInt(numMBM.getText());
+        int nCPU = Integer.parseInt(numCPU.getText());
+        int nRAM = Integer.parseInt(numRAM.getText());
+        int nPSU = Integer.parseInt(numPSU.getText());
+        int nGPU = Integer.parseInt(numGPU.getText());
+        int nAssemb = Integer.parseInt(numAssembler.getText());
+        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
+        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
+        if (currentQWorkers < maxWorkers){
+            int num = Integer.parseInt(numCPU.getText());
+            num++;
+            numCPU.setText(Integer.toString(num));
+        } else{
+            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+        }
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        int num = Integer.parseInt(numPSU.getText());
-        num++;
-        numPSU.setText(Integer.toString(num));
+        int nMBM = Integer.parseInt(numMBM.getText());
+        int nCPU = Integer.parseInt(numCPU.getText());
+        int nRAM = Integer.parseInt(numRAM.getText());
+        int nPSU = Integer.parseInt(numPSU.getText());
+        int nGPU = Integer.parseInt(numGPU.getText());
+        int nAssemb = Integer.parseInt(numAssembler.getText());
+        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
+        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
+        if (currentQWorkers < maxWorkers){
+            int num = Integer.parseInt(numPSU.getText());
+            num++;
+            numPSU.setText(Integer.toString(num));
+        } else{
+            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+        }
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        int num = Integer.parseInt(numRAM.getText());
-        num++;
-        numRAM.setText(Integer.toString(num));
+        int nMBM = Integer.parseInt(numMBM.getText());
+        int nCPU = Integer.parseInt(numCPU.getText());
+        int nRAM = Integer.parseInt(numRAM.getText());
+        int nPSU = Integer.parseInt(numPSU.getText());
+        int nGPU = Integer.parseInt(numGPU.getText());
+        int nAssemb = Integer.parseInt(numAssembler.getText());
+        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
+        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
+        if (currentQWorkers < maxWorkers){
+            int num = Integer.parseInt(numRAM.getText());
+            num++;
+            numRAM.setText(Integer.toString(num));
+        } else{
+            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+        }
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        int num = Integer.parseInt(numAssembler.getText());
-        num++;
-        numAssembler.setText(Integer.toString(num));
+        int nMBM = Integer.parseInt(numMBM.getText());
+        int nCPU = Integer.parseInt(numCPU.getText());
+        int nRAM = Integer.parseInt(numRAM.getText());
+        int nPSU = Integer.parseInt(numPSU.getText());
+        int nGPU = Integer.parseInt(numGPU.getText());
+        int nAssemb = Integer.parseInt(numAssembler.getText());
+        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
+        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
+        if (currentQWorkers < maxWorkers){
+            int num = Integer.parseInt(numAssembler.getText());
+            num++;
+            numAssembler.setText(Integer.toString(num));
+        } else{
+            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+        }
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        int num = Integer.parseInt(numGPU.getText());
-        num++;
-        numGPU.setText(Integer.toString(num));
+        int nMBM = Integer.parseInt(numMBM.getText());
+        int nCPU = Integer.parseInt(numCPU.getText());
+        int nRAM = Integer.parseInt(numRAM.getText());
+        int nPSU = Integer.parseInt(numPSU.getText());
+        int nGPU = Integer.parseInt(numGPU.getText());
+        int nAssemb = Integer.parseInt(numAssembler.getText());
+        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
+        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
+        if (currentQWorkers < maxWorkers){
+            int num = Integer.parseInt(numGPU.getText());
+            num++;
+            numGPU.setText(Integer.toString(num));
+        } else{
+            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+        }
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
-        // TODO add your handling code here:
+        int num = Integer.parseInt(numMBM.getText());
+        if (num > 1){
+            num--;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
+        }
+        numMBM.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
-        // TODO add your handling code here:
+        int num = Integer.parseInt(numCPU.getText());
+        if (num > 1){
+            num--;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
+        }
+        numCPU.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-        // TODO add your handling code here:
+        int num = Integer.parseInt(numRAM.getText());
+        if (num > 1){
+            num--;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
+        }
+        numRAM.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
-        // TODO add your handling code here:
+        int num = Integer.parseInt(numPSU.getText());
+        if (num > 1){
+            num--;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
+        }
+        numPSU.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-        // TODO add your handling code here:
+        int num = Integer.parseInt(numGPU.getText());
+        if (num > 1){
+            num--;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
+        }
+        numGPU.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
-        // TODO add your handling code here:
+        int num = Integer.parseInt(numAssembler.getText());
+        if (num > 1){
+            num--;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
+        }
+        numAssembler.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
@@ -844,6 +964,10 @@ public class HP extends javax.swing.JFrame {
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton28ActionPerformed
+
+    private void fieldTotalWorkers1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldTotalWorkers1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldTotalWorkers1ActionPerformed
 
     /**
      * @param args the command line arguments
