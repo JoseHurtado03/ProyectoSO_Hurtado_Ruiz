@@ -104,16 +104,16 @@ public class Assembler extends Thread{
     
     public void buildCompuN(){
         storage[0] -= nMotherBoard;
-        bMB.setValue(bMB.getValue()-1);
+        bMB.setValue(storage[0]);
         
         storage[1] -= nCPU;
-        bCPU.setValue(bCPU.getValue()-1);
+        bCPU.setValue(storage[1]);
         
         storage[2] -= nRAM;
-        bRAM.setValue(bRAM.getValue()-1);
+        bRAM.setValue(storage[2]);
         
         storage[3] -= nPowerSupply;
-        bMB.setValue(bPSU.getValue()-1);
+        bMB.setValue(storage[3]);
         
         computerStorage++;
         nCompuI.setText(Integer.toString(computerStorage));
@@ -121,19 +121,19 @@ public class Assembler extends Thread{
     
     public void buildCompuGPU(){
         storage[0] -= nMotherBoard;
-        bMB.setValue(bMB.getValue()-1);
+        bMB.setValue(storage[0]);
         
         storage[1] -= nCPU;
-        bCPU.setValue(bCPU.getValue()-1);
+        bCPU.setValue(storage[1]);
         
         storage[2] -= nRAM;
-        bRAM.setValue(bRAM.getValue()-1);
+        bRAM.setValue(storage[2]);
         
         storage[3] -= nPowerSupply;
-        bMB.setValue(bPSU.getValue()-1);
+        bMB.setValue(storage[3]);
         
         storage[4] -= nGPU;
-        bGPU.setValue(bGPU.getValue()-1);
+        bGPU.setValue(storage[4]);
         
         computerGPUStorage ++;
         gpuCompuI.setText(Integer.toString(computerGPUStorage));
