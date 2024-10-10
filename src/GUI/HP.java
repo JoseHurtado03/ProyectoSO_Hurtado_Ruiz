@@ -35,6 +35,8 @@ public class HP extends javax.swing.JFrame {
     public static JTextField tGPU_HP;
     public static JTextField tAssemb_HP;
     
+    public static JLabel profit_HP;
+    
     /**
      * Creates new form HP
      * @param hpCompany
@@ -63,6 +65,8 @@ public class HP extends javax.swing.JFrame {
         dirStatus = Director_State;
         totalDays = totalDaysToDeadline;
         currentsDays = daysPassed;
+        
+        profit_HP = profitHP;
         
         
         //El texto de la pantalla se va a inicializar como la información de la misma compañía
@@ -188,7 +192,7 @@ public class HP extends javax.swing.JFrame {
         PM_State1 = new javax.swing.JLabel();
         Director_State2 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
-        Director_State3 = new javax.swing.JLabel();
+        profitHP = new javax.swing.JLabel();
 
         jPanel5.setBackground(new java.awt.Color(87, 59, 48));
         jPanel5.setToolTipText("-");
@@ -808,10 +812,10 @@ public class HP extends javax.swing.JFrame {
         jLabel38.setText("Profit");
         jPanel6.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
-        Director_State3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Director_State3.setForeground(new java.awt.Color(255, 255, 255));
-        Director_State3.setText("0");
-        jPanel6.add(Director_State3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 69, -1));
+        profitHP.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        profitHP.setForeground(new java.awt.Color(255, 255, 255));
+        profitHP.setText("0");
+        jPanel6.add(profitHP, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 69, -1));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 250, -1, 190));
 
@@ -1086,7 +1090,6 @@ public class HP extends javax.swing.JFrame {
     private javax.swing.JLabel Director_State;
     private javax.swing.JLabel Director_State1;
     private javax.swing.JLabel Director_State2;
-    private javax.swing.JLabel Director_State3;
     private javax.swing.JProgressBar LoadingBarCPU;
     private javax.swing.JProgressBar LoadingBarGPU;
     private javax.swing.JProgressBar LoadingBarMB;
@@ -1188,6 +1191,7 @@ public class HP extends javax.swing.JFrame {
     private javax.swing.JTextField numMBM;
     private javax.swing.JTextField numPSU;
     private javax.swing.JTextField numRAM;
+    private javax.swing.JLabel profitHP;
     private javax.swing.JLabel totalDaysToDeadline;
     // End of variables declaration//GEN-END:variables
 }

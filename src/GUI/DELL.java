@@ -35,6 +35,8 @@ public class DELL extends javax.swing.JFrame {
     public static JTextField tGPU_DELL;
     public static JTextField tAssemb_DELL;
     
+    public static JLabel profit_DELL;
+    
     /**
      * Creates new form DELL
      * @param dell
@@ -62,6 +64,8 @@ public class DELL extends javax.swing.JFrame {
         dirStatus = Director_State;
         totalDays = totalDaysToDeadline;
         currentsDays = daysPassed;
+        
+        profit_DELL = profitDELL;
         //this.dell = dell;
         //fieldTotalWorkers.setText(String.valueOf(dell.getWorkersList()[0].getSize()));
 
@@ -139,7 +143,7 @@ public class DELL extends javax.swing.JFrame {
         PM_State1 = new javax.swing.JLabel();
         Director_State2 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
-        Director_State3 = new javax.swing.JLabel();
+        profitDELL = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -502,10 +506,10 @@ public class DELL extends javax.swing.JFrame {
         jLabel38.setText("Profit");
         jPanel6.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
-        Director_State3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Director_State3.setForeground(new java.awt.Color(255, 255, 255));
-        Director_State3.setText("0");
-        jPanel6.add(Director_State3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 69, -1));
+        profitDELL.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        profitDELL.setForeground(new java.awt.Color(255, 255, 255));
+        profitDELL.setText("0");
+        jPanel6.add(profitDELL, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 69, -1));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 250, -1, 190));
 
@@ -826,7 +830,6 @@ public class DELL extends javax.swing.JFrame {
     private javax.swing.JLabel Director_State;
     private javax.swing.JLabel Director_State1;
     private javax.swing.JLabel Director_State2;
-    private javax.swing.JLabel Director_State3;
     private javax.swing.JProgressBar LoadingBarCPU;
     private javax.swing.JProgressBar LoadingBarGPU;
     private javax.swing.JProgressBar LoadingBarMB;
@@ -899,6 +902,7 @@ public class DELL extends javax.swing.JFrame {
     private javax.swing.JTextField numMBM;
     private javax.swing.JTextField numPSU;
     private javax.swing.JTextField numRAM;
+    private javax.swing.JLabel profitDELL;
     private javax.swing.JLabel totalDaysToDeadline;
     // End of variables declaration//GEN-END:variables
 }
