@@ -9,9 +9,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 import proyecto1_so_hurtado_ruiz.Main;
 import EDD.List;
+import java.awt.TextField;
+import proyecto1_so_hurtado_ruiz.Company;
 
-public class HP extends javax.swing.JFrame {
-    private mainMenu menu;
+public class HP extends javax.swing.JFrame {    
+    static Company hpCompany;
     
     public JProgressBar pbMB;
     public JProgressBar pbCPU;
@@ -27,9 +29,11 @@ public class HP extends javax.swing.JFrame {
     
     /**
      * Creates new form HP
+     * @param hpCompany
      */
-    public HP() {
+    public HP(Company hpCompany) {
         initComponents();
+        this.hpCompany=hpCompany;
         this.setLocationRelativeTo(null);
         pbMB = LoadingBarMB;
         pbCPU = LoadingBarCPU;
@@ -45,6 +49,14 @@ public class HP extends javax.swing.JFrame {
         totalDays = totalDaysToDeadline;
         currentsDays = daysPassed;
         
+        
+        //El texto de la pantalla se va a inicializar como la información de la misma compañía
+        numMBM.setText(Integer.toString(hpCompany.getpMBList().getSize()));
+        numCPU.setText(Integer.toString(hpCompany.getpCPUList().getSize()));
+        numRAM.setText(Integer.toString(hpCompany.getpRAMList().getSize()));
+        numPSU.setText(Integer.toString(hpCompany.getpPSUList().getSize()));
+        numGPU.setText(Integer.toString(hpCompany.getpGPUList().getSize()));
+        numAssembler.setText(Integer.toString(hpCompany.getAssemblerList().getSize()));
     }
 
     /**
@@ -827,97 +839,43 @@ public class HP extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        int nMBM = Integer.parseInt(numMBM.getText());
-        int nCPU = Integer.parseInt(numCPU.getText());
-        int nRAM = Integer.parseInt(numRAM.getText());
-        int nPSU = Integer.parseInt(numPSU.getText());
-        int nGPU = Integer.parseInt(numGPU.getText());
-        int nAssemb = Integer.parseInt(numAssembler.getText());
-        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
-        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
-        if (currentQWorkers < maxWorkers){
-            int num = Integer.parseInt(numMBM.getText());
-            num++;
-            numMBM.setText(Integer.toString(num));
-        } else{
-            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
-        }
+        if (this.changeNumberEmployees(hpCompany.getpMBList(), 0, Main.mainGUI.dayMS)){
+            numMBM.setText(Integer.toString(hpCompany.getpMBList().getSize()));
+        }    
+        
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        int nMBM = Integer.parseInt(numMBM.getText());
-        int nCPU = Integer.parseInt(numCPU.getText());
-        int nRAM = Integer.parseInt(numRAM.getText());
-        int nPSU = Integer.parseInt(numPSU.getText());
-        int nGPU = Integer.parseInt(numGPU.getText());
-        int nAssemb = Integer.parseInt(numAssembler.getText());
-        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
-        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
-        if (currentQWorkers < maxWorkers){
-            int num = Integer.parseInt(numCPU.getText());
-            num++;
-            numCPU.setText(Integer.toString(num));
-        } else{
-            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+        if (this.changeNumberEmployees(hpCompany.getpCPUList(), 1, Main.mainGUI.dayMS)){
+            numCPU.setText(Integer.toString(hpCompany.getpCPUList().getSize()));
         }
+        
+
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        int nMBM = Integer.parseInt(numMBM.getText());
-        int nCPU = Integer.parseInt(numCPU.getText());
-        int nRAM = Integer.parseInt(numRAM.getText());
-        int nPSU = Integer.parseInt(numPSU.getText());
-        int nGPU = Integer.parseInt(numGPU.getText());
-        int nAssemb = Integer.parseInt(numAssembler.getText());
-        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
-        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
-        if (currentQWorkers < maxWorkers){
-            int num = Integer.parseInt(numPSU.getText());
-            num++;
-            numPSU.setText(Integer.toString(num));
-        } else{
-            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+        if (this.changeNumberEmployees(hpCompany.getpPSUList(), 3, Main.mainGUI.dayMS)) {
+            numPSU.setText(Integer.toString(hpCompany.getpPSUList().getSize()));
         }
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        int nMBM = Integer.parseInt(numMBM.getText());
-        int nCPU = Integer.parseInt(numCPU.getText());
-        int nRAM = Integer.parseInt(numRAM.getText());
-        int nPSU = Integer.parseInt(numPSU.getText());
-        int nGPU = Integer.parseInt(numGPU.getText());
-        int nAssemb = Integer.parseInt(numAssembler.getText());
-        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
-        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
-        if (currentQWorkers < maxWorkers){
-            int num = Integer.parseInt(numRAM.getText());
-            num++;
-            numRAM.setText(Integer.toString(num));
-        } else{
-            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+        if (this.changeNumberEmployees(hpCompany.getpRAMList(), 2, Main.mainGUI.dayMS)) {
+            numRAM.setText(Integer.toString(hpCompany.getpRAMList().getSize()));
         }
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        int nMBM = Integer.parseInt(numMBM.getText());
-        int nCPU = Integer.parseInt(numCPU.getText());
-        int nRAM = Integer.parseInt(numRAM.getText());
-        int nPSU = Integer.parseInt(numPSU.getText());
-        int nGPU = Integer.parseInt(numGPU.getText());
-        int nAssemb = Integer.parseInt(numAssembler.getText());
-        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
-        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
-        if (currentQWorkers < maxWorkers){
-            int num = Integer.parseInt(numAssembler.getText());
-            num++;
-            numAssembler.setText(Integer.toString(num));
-        } else{
-            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+        if (this.changeNumberEmployees(hpCompany.getAssemblerList(), 5, Main.mainGUI.dayMS)) {
+            numAssembler.setText(Integer.toString(hpCompany.getAssemblerList().getSize()));
         }
+
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        
+        if (this.changeNumberEmployees(hpCompany.getpGPUList(), 4, Main.mainGUI.dayMS)) {
+         numGPU.setText(Integer.toString(hpCompany.getpGPUList().getSize()));   
+        }
 
     }//GEN-LAST:event_jButton20ActionPerformed
 
@@ -1006,7 +964,7 @@ public class HP extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_numMBMActionPerformed
 
-    private int verifyTotalEmployees(List typeEmployee){
+    private boolean changeNumberEmployees(List typeEmployeeList, int typeWorker, int dayMS){
         int nMBM = Integer.parseInt(numMBM.getText());
         int nCPU = Integer.parseInt(numCPU.getText());
         int nRAM = Integer.parseInt(numRAM.getText());
@@ -1016,14 +974,13 @@ public class HP extends javax.swing.JFrame {
         int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
         int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
         if (currentQWorkers < maxWorkers){
-            int num = Integer.parseInt(numGPU.getText());
-            num++;
-            numGPU.setText(Integer.toString(num));
-            return num;
+            
+            hpCompany.hireEmployee(0, typeWorker, dayMS);
+            int num = typeEmployeeList.getSize();
+            return true;
         } else{
             JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
-            int num = Integer.parseInt(numGPU.getText());
-            return num;
+            return false;
         }
         
     }
@@ -1058,7 +1015,7 @@ public class HP extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HP().setVisible(true);
+                new HP(hpCompany).setVisible(true);
             }
         });
     }

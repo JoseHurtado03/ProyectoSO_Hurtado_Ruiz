@@ -66,7 +66,7 @@ public class Company {
         this.dellUX = dellUX;
     }
     
-    public void hireEmployee(int companyID, int dayMS) {
+    public void hireSomeEmployees(int companyID, int dayMS) {
         for (int typeWorker = 0 ; typeWorker < getStarterList().length; typeWorker++) { //Itera por la cantidad de empleados distintos que existen
             for (int workerQuantity = 0; workerQuantity < getStarterList()[typeWorker]+1; workerQuantity++) { //Itera por la cantidad de empleados de x tipo
                 Thread employee=findEmployee(companyID, typeWorker, dayMS); //Contrata un nuevo empleado
@@ -75,6 +75,11 @@ public class Company {
             }
         }
     }
+    public void hireEmployee(int companyID, int typeWorker, int dayMS) {
+        Thread employee=findEmployee(companyID, typeWorker, dayMS); //Contrata un nuevo empleado
+        workersList[typeWorker].addEnd(employee); //[| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU | 5 assembler |]
+    }
+    
 
     public Thread findEmployee(int companyID, int typeWorker, int daysMS) {
         Thread employee=null;
@@ -116,7 +121,7 @@ public class Company {
                 employee = new Productor(getStorage(), 10, 4, 34, 1, 3*daysMS, getMutex(), dellUX.pbGPU);
             }
             if (typeWorker==5) { //Estamos en el caso de que contrataremos un ensamblador
-                employee = new Assembler(getStorage(), getProducedPC(), getProducedGPU_PC(), 1, 1, 2, 4, 3, 2, 2*daysMS, getMutex(), dellUX.pbMB, dellUX.pbCPU, dellUX.pbRAM, dellUX.pbPSU, dellUX.pbGPU, dellUX.nCompuI, dellUX.gpuCompuI);
+                employee = new Assembler(getStorage(), getProducedPC(), getProducedGPU_PC(), 1, 1, 2, 4, 3, 2, 2,dayMS, getMutex(), dellUX.pbMB, dellUX.pbCPU, dellUX.pbRAM, dellUX.pbPSU, dellUX.pbGPU, dellUX.nCompuI, dellUX.gpuCompuI);
             }
         } 
         return employee;
@@ -242,4 +247,5 @@ public class Company {
     public void setProducedGPU_PC(int producedGPU_PC) {
         this.producedGPU_PC = producedGPU_PC;
     }
+    
 }

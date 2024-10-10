@@ -24,12 +24,13 @@ public class mainMenu extends javax.swing.JFrame {
     public long startTime;
     public int[] storageHP;       //ALMACÉN   [| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU |]
     public int[] storageDELL;     //ALMACÉN   [| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU |]
-    private int dayMS;
+    public int dayMS;
 
     //Variables para iniciar la simulación
     public int[] workersHP; //Array, dice cuántos empleados contratar. [| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU | 5 assemblers|]
     //Workers debe ser un arreglo que se use para exportar e importar la info al txt.
     public int[] workersDell;
+    
     public static Company dell;
     public  static Company hp;
     
@@ -323,7 +324,7 @@ public class mainMenu extends javax.swing.JFrame {
 //        dell= new Company("Dell", dayMS,  workersDell, storageDELL, 15);
 //        dell.hireEmployee(1, dayMS);
         hp= new Company("HP", dayMS, workersHP, storageHP, 12, hpWindow, dellWindow);    
-        hp.hireEmployee(0, dayMS);
+        hp.hireSomeEmployees(0, dayMS);
        
     }//GEN-LAST:event_startActionPerformed
 
