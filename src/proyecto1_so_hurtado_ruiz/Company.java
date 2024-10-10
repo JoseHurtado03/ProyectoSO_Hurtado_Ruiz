@@ -23,13 +23,13 @@ public class Company {
     private int producedPC;
     private int producedGPU_PC;
     //Array de listas de empleados contratados por tipo
-    private List pMBList;
-    private List pCPUList;
-    private List pRAMList;
-    private List pPSUList;
-    private List pGPUList;
-    private List assemblerList;
-    private List[] workersList;
+//    private List pMBList;
+//    private List pCPUList;
+//    private List pRAMList;
+//    private List pPSUList;
+//    private List pGPUList;
+//    private List assemblerList;
+    private List[] workersList; //[| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU | 5 assembler |]
     
     private ProjectManager pm;
     private Director director;
@@ -45,16 +45,16 @@ public class Company {
         this.dayMS= dayMS;
         this.starterList = starterList;
         this.mutex = new Semaphore(1);
-        this.pMBList = new List();
-        this.pCPUList = new List();
-        this.pRAMList = new List();
-        this.pPSUList = new List();
-        this.pGPUList = new List();
-        this.assemblerList = new List();
+//        this.pMBList = new List();
+//        this.pCPUList = new List();
+//        this.pRAMList = new List();
+//        this.pPSUList = new List();
+//        this.pGPUList = new List();
+//        this.assemblerList = new List();
         this.pm = new ProjectManager(20, 40, 0, this.startTime, this.dayMS, hpUX.pmStatus, hpUX.currentsDays);                         //¡¡Los días restantes deben estar en una variable!!
         this.director= new Director(20, this.producedPC, this.producedGPU_PC, 90, 140, this.pm, 60, this.dayMS, hpUX.dirStatus, hpUX.nCompuI, hpUX.gpuCompuI); //¡¡Los días restantes deben estar en una variable!!
         this.storage = new int[5];
-        this.workersList = new List[6];
+        this.workersList = new List[6]; //[| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU | 5 assembler |]
         for (int i = 0; i < workersList.length; i++) {
             workersList[i] = new List(); // Inicializa cada List
         }
@@ -71,7 +71,7 @@ public class Company {
             for (int workerQuantity = 0; workerQuantity < getStarterList()[typeWorker]+1; workerQuantity++) { //Itera por la cantidad de empleados de x tipo
                 Thread employee=findEmployee(companyID, typeWorker, dayMS); //Contrata un nuevo empleado
                 
-                workersList[typeWorker].addEnd(employee);
+                workersList[typeWorker].addEnd(employee); //[| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU | 5 assembler |]
             }
         }
     }
@@ -101,22 +101,22 @@ public class Company {
         } else if (companyID==1){ //Estamos en el caso de que contrataremos empleados para DELL
             
             if (typeWorker==0) { //Estamos en el caso de que contrataremos MB productores
-                //employee = new Productor(getStorage(), 25, 0, 20, 1, 3*daysMS, getMutex());
+                employee = new Productor(getStorage(), 25, 0, 20, 1, 3*daysMS, getMutex(), dellUX.pbMB); //int[] storage, int storageLimit, int index, int salary, int productsQuantity, int days, Semaphore mutex, JProgressBar bar
             }
             if (typeWorker==1) { //Estamos en el caso de que contrataremos CPU productores
-                //employee = new Productor(getStorage(), 20, 1, 26, 1, 3*daysMS, getMutex());
+                employee = new Productor(getStorage(), 20, 1, 26, 1, 3*daysMS, getMutex(), dellUX.pbCPU);
             }
             if (typeWorker==2) { //Estamos en el caso de que contrataremos RAM productores
-                //employee = new Productor(getStorage(), 55, 2, 40, 3, daysMS, getMutex());
+                employee = new Productor(getStorage(), 55, 2, 40, 2, daysMS, getMutex(), dellUX.pbRAM);
             }
             if (typeWorker==3) { //Estamos en el caso de que contrataremos PSU productores
-                //employee = new Productor(getStorage(), 35, 3, 16, 3, daysMS, getMutex());
+                employee = new Productor(getStorage(), 35, 3, 16, 3, daysMS, getMutex(), dellUX.pbPSU);
             }
             if (typeWorker==4) { //Estamos en el caso de que contrataremos GPU productores
-                //employee = new Productor(getStorage(), 10, 4, 34, 1, 3*daysMS, getMutex());
+                employee = new Productor(getStorage(), 10, 4, 34, 1, 3*daysMS, getMutex(), dellUX.pbGPU);
             }
             if (typeWorker==5) { //Estamos en el caso de que contrataremos un ensamblador
-                //employee = new Assembler(getStorage(), getProducedPC(), getProducedGPU_PC(), 1, 1, 2, 4, 3, 2, 2*daysMS, getMutex());
+                employee = new Assembler(getStorage(), getProducedPC(), getProducedGPU_PC(), 1, 1, 2, 4, 3, 2, 2*daysMS, getMutex(), dellUX.pbMB, dellUX.pbCPU, dellUX.pbRAM, dellUX.pbPSU, dellUX.pbGPU, dellUX.nCompuI, dellUX.gpuCompuI);
             }
         } 
         return employee;
@@ -156,51 +156,51 @@ public class Company {
     }
 
     public List getpMBList() {
-        return pMBList;
+        return getWorkersList()[0];
     }
 
     public void setpMBList(List pMBList) {
-        this.pMBList = pMBList;
+        this.getWorkersList()[0] = pMBList;
     }
 
     public List getpCPUList() {
-        return pCPUList;
+        return getWorkersList()[1];
     }
 
     public void setpCPUList(List pCPUList) {
-        this.pCPUList = pCPUList;
+        this.getWorkersList()[1] = pCPUList;
     }
 
     public List getpRAMList() {
-        return pRAMList;
+        return getWorkersList()[2];
     }
 
     public void setpRAMList(List pRAMList) {
-        this.pRAMList = pRAMList;
+        this.getWorkersList()[2] = pRAMList;
     }
 
     public List getpPSUList() {
-        return pPSUList;
+        return getWorkersList()[3];
     }
 
     public void setpPSUList(List pPSUList) {
-        this.pPSUList = pPSUList;
+        this.getWorkersList()[3] = pPSUList;
     }
 
     public List getpGPUList() {
-        return pGPUList;
+        return getWorkersList()[4];
     }
 
     public void setpGPUList(List pGPUList) {
-        this.pGPUList = pGPUList;
+        this.getWorkersList()[4] = pGPUList;
     }
 
     public List getAssemblerList() {
-        return assemblerList;
+        return getWorkersList()[5];
     }
 
     public void setAssemblerList(List assemblerList) {
-        this.assemblerList = assemblerList;
+        this.getWorkersList()[5] = assemblerList;
     }
 
     public ProjectManager getPm() {
