@@ -4,12 +4,25 @@
  */
 package GUI;
 import EDD.List;
+import static GUI.DELL.tAssemb_DELL;
+import static GUI.DELL.tCPU_DELL;
+import static GUI.DELL.tGPU_DELL;
+import static GUI.DELL.tMBM_DELL;
+import static GUI.DELL.tPSU_DELL;
+import static GUI.DELL.tRAM_DELL;
+import static GUI.HP.tAssemb_HP;
+import static GUI.HP.tCPU_HP;
+import static GUI.HP.tGPU_HP;
+import static GUI.HP.tMBM_HP;
+import static GUI.HP.tPSU_HP;
+import static GUI.HP.tRAM_HP;
 import java.util.concurrent.Semaphore;
 import proyecto1_so_hurtado_ruiz.Assembler;
 import proyecto1_so_hurtado_ruiz.Main;
 import proyecto1_so_hurtado_ruiz.Productor;
 import proyecto1_so_hurtado_ruiz.ProjectManager;
 import proyecto1_so_hurtado_ruiz.Company;
+import proyecto1_so_hurtado_ruiz.FileManager;
 
 /**
  *
@@ -34,6 +47,8 @@ public class mainMenu extends javax.swing.JFrame {
     public static Company dell;
     public  static Company hp;
     
+    public static FileManager fm;
+    
     
     /**
      * Creates new form mainMenu1
@@ -49,8 +64,10 @@ public class mainMenu extends javax.swing.JFrame {
         this.workersDell=workersHP;
         this.dayMS= Integer.parseInt(fieldDaysMS.getText());
         
-        hpWindow = new HP();
+        hpWindow = new HP(hp);
         dellWindow = new DELL(dell);
+        
+        fm = new FileManager(fieldDaysMS, fieldDeadlineMS, tMBM_HP, tCPU_HP, tRAM_HP, tPSU_HP, tGPU_HP,tAssemb_HP, tMBM_DELL, tCPU_DELL, tRAM_DELL, tPSU_DELL, tGPU_DELL, tAssemb_DELL);
         
     }
 

@@ -7,6 +7,7 @@ package GUI;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
+import javax.swing.JTextField;
 import proyecto1_so_hurtado_ruiz.Main;
 import proyecto1_so_hurtado_ruiz.Company;
 /**
@@ -27,6 +28,13 @@ public class DELL extends javax.swing.JFrame {
     public JLabel totalDays;
     public JLabel currentsDays;
     
+    public static JTextField tMBM_DELL;
+    public static JTextField tCPU_DELL;
+    public static JTextField tRAM_DELL;
+    public static JTextField tPSU_DELL;
+    public static JTextField tGPU_DELL;
+    public static JTextField tAssemb_DELL;
+    
     /**
      * Creates new form DELL
      * @param dell
@@ -39,6 +47,13 @@ public class DELL extends javax.swing.JFrame {
         pbRAM = LoadingBarRAM;
         pbPSU = LoadingBarPSU;
         pbGPU = LoadingBarGPU;
+        
+        tMBM_DELL = numMBM;
+        tCPU_DELL = numCPU;
+        tRAM_DELL = numRAM;
+        tPSU_DELL = numPSU;
+        tGPU_DELL = numGPU;
+        tAssemb_DELL = numAssembler;
         
         nCompuI = ManufacturedNormalPCs;
         gpuCompuI = ManufacturedGPUPCs;
@@ -115,6 +130,16 @@ public class DELL extends javax.swing.JFrame {
         ManufacturedGPUPCs = new javax.swing.JLabel();
         ManufacturedNormalPCs = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
+        backButton = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        PM_State1 = new javax.swing.JLabel();
+        Director_State2 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        Director_State3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -126,10 +151,8 @@ public class DELL extends javax.swing.JFrame {
         Director_State = new javax.swing.JLabel();
         totalDaysToDeadline = new javax.swing.JLabel();
         daysPassed = new javax.swing.JLabel();
-        QuantityGPU1 = new javax.swing.JLabel();
-        ManufacturedGPUPCs1 = new javax.swing.JLabel();
-        ManufacturedNormalPCs1 = new javax.swing.JLabel();
-        backButton = new javax.swing.JButton();
+        jLabel31 = new javax.swing.JLabel();
+        Director_State1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -153,7 +176,7 @@ public class DELL extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(220, 223, 219));
         jLabel1.setText("Made by Hurtado, José & Ruiz, Joseph ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 420, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 450, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(87, 59, 48));
         jPanel2.setToolTipText("-");
@@ -433,6 +456,59 @@ public class DELL extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(429, 44, -1, 280));
 
+        backButton.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        backButton.setText("🔙");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, -1, -1));
+
+        jPanel6.setBackground(new java.awt.Color(87, 59, 48));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel32.setText("Dashboard");
+        jPanel6.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jLabel33.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel33.setText("Income");
+        jPanel6.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 61, -1, -1));
+
+        jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel34.setText("Expenses");
+        jPanel6.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+
+        jLabel35.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel6.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 113, -1, -1));
+
+        PM_State1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        PM_State1.setForeground(new java.awt.Color(255, 255, 255));
+        PM_State1.setText("0");
+        jPanel6.add(PM_State1, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 61, 69, -1));
+
+        Director_State2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Director_State2.setForeground(new java.awt.Color(255, 255, 255));
+        Director_State2.setText("0");
+        jPanel6.add(Director_State2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 69, -1));
+
+        jLabel38.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel38.setText("Profit");
+        jPanel6.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
+
+        Director_State3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Director_State3.setForeground(new java.awt.Color(255, 255, 255));
+        Director_State3.setText("0");
+        jPanel6.add(Director_State3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 69, -1));
+
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 250, -1, 190));
+
         jPanel4.setBackground(new java.awt.Color(87, 59, 48));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -448,8 +524,8 @@ public class DELL extends javax.swing.JFrame {
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setText("Director");
-        jPanel4.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 87, -1, -1));
+        jLabel19.setText("Discounts");
+        jPanel4.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
@@ -458,12 +534,12 @@ public class DELL extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Days until Deadline");
-        jPanel4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 119, -1, -1));
+        jPanel4.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("Days passed");
-        jPanel4.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 145, -1, -1));
+        jPanel4.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
         PM_State.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         PM_State.setForeground(new java.awt.Color(255, 255, 255));
@@ -472,44 +548,30 @@ public class DELL extends javax.swing.JFrame {
 
         Director_State.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Director_State.setForeground(new java.awt.Color(255, 255, 255));
-        Director_State.setText("Working");
-        jPanel4.add(Director_State, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 87, 69, -1));
+        Director_State.setText("0");
+        jPanel4.add(Director_State, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 69, -1));
 
         totalDaysToDeadline.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         totalDaysToDeadline.setForeground(new java.awt.Color(255, 255, 255));
         totalDaysToDeadline.setText("15");
-        jPanel4.add(totalDaysToDeadline, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 119, 47, -1));
+        jPanel4.add(totalDaysToDeadline, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 47, -1));
 
         daysPassed.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         daysPassed.setForeground(new java.awt.Color(255, 255, 255));
         daysPassed.setText("15");
-        jPanel4.add(daysPassed, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 145, 47, -1));
+        jPanel4.add(daysPassed, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 47, -1));
 
-        QuantityGPU1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        QuantityGPU1.setForeground(new java.awt.Color(255, 255, 255));
-        QuantityGPU1.setText("15");
-        jPanel4.add(QuantityGPU1, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 165, 47, -1));
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel31.setText("Director");
+        jPanel4.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
-        ManufacturedGPUPCs1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ManufacturedGPUPCs1.setForeground(new java.awt.Color(255, 255, 255));
-        ManufacturedGPUPCs1.setText("15");
-        jPanel4.add(ManufacturedGPUPCs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 217, 47, -1));
+        Director_State1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Director_State1.setForeground(new java.awt.Color(255, 255, 255));
+        Director_State1.setText("Working");
+        jPanel4.add(Director_State1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 69, -1));
 
-        ManufacturedNormalPCs1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        ManufacturedNormalPCs1.setForeground(new java.awt.Color(255, 255, 255));
-        ManufacturedNormalPCs1.setText("15");
-        jPanel4.add(ManufacturedNormalPCs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 191, 47, -1));
-
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(727, 44, -1, 240));
-
-        backButton.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        backButton.setText("🔙");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, -1, -1));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(734, 44, -1, 190));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -517,14 +579,14 @@ public class DELL extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 948, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -762,19 +824,20 @@ public class DELL extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Director_State;
+    private javax.swing.JLabel Director_State1;
+    private javax.swing.JLabel Director_State2;
+    private javax.swing.JLabel Director_State3;
     private javax.swing.JProgressBar LoadingBarCPU;
     private javax.swing.JProgressBar LoadingBarGPU;
     private javax.swing.JProgressBar LoadingBarMB;
     private javax.swing.JProgressBar LoadingBarPSU;
     private javax.swing.JProgressBar LoadingBarRAM;
     private javax.swing.JLabel ManufacturedGPUPCs;
-    private javax.swing.JLabel ManufacturedGPUPCs1;
     private javax.swing.JLabel ManufacturedNormalPCs;
-    private javax.swing.JLabel ManufacturedNormalPCs1;
     private javax.swing.JLabel PM_State;
+    private javax.swing.JLabel PM_State1;
     private javax.swing.JLabel QuantityCPU;
     private javax.swing.JLabel QuantityGPU;
-    private javax.swing.JLabel QuantityGPU1;
     private javax.swing.JLabel QuantityMB;
     private javax.swing.JLabel QuantityPSU;
     private javax.swing.JLabel QuantityRAM;
@@ -812,6 +875,12 @@ public class DELL extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -822,6 +891,7 @@ public class DELL extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField numAssembler;
     private javax.swing.JTextField numCPU;
