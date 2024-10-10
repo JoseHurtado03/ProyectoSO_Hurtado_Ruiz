@@ -21,6 +21,7 @@ public class Assembler extends Thread{
     private int compuCounter;         //Contador de cuantas compu. normales se deben hacer para luego hacer una con GPU
     private int salary;
     private int days;                 //Días que tarda en hacer una computadora
+    private int daysMS;
     private Semaphore mutex;
     private JProgressBar bMB;
     private JProgressBar bCPU;
@@ -33,7 +34,7 @@ public class Assembler extends Thread{
 
     private static final Logger logger = Logger.getLogger(Productor.class.getName());
 
-    public Assembler(int[] storage, int computerStorage, int computerGPUStorage, int nMotherBoard, int nCPU, int nRAM, int nPowerSupply, int nGPU, int compuCounter, int days, Semaphore mutex, JProgressBar bMB, JProgressBar bCPU, JProgressBar bRAM, JProgressBar bPSU, JProgressBar bGPU, JLabel nCompuI, JLabel gpuCompuI) {
+    public Assembler(int[] storage, int computerStorage, int computerGPUStorage, int nMotherBoard, int nCPU, int nRAM, int nPowerSupply, int nGPU, int compuCounter, int days, int daysMS, Semaphore mutex, JProgressBar bMB, JProgressBar bCPU, JProgressBar bRAM, JProgressBar bPSU, JProgressBar bGPU, JLabel nCompuI, JLabel gpuCompuI) {
         this.storage = storage;
         this.computerStorage = computerStorage;
         this.computerGPUStorage = computerGPUStorage;
@@ -46,6 +47,7 @@ public class Assembler extends Thread{
         this.compuCounter = compuCounter;
         this.salary = 50;
         this.days = days;
+        this.daysMS = daysMS;
         this.mutex = mutex;
         this.bMB = bMB;
         this.bCPU = bCPU;
@@ -68,11 +70,11 @@ public class Assembler extends Thread{
                         this.buildCompuN();
                         counter++;
                         System.out.println("Hay "+computerStorage+" computadoras normales");
-                        sleep(days);
+                        sleep(days*daysMS);
                         mutex.release();
                     }else{
                         System.out.println("No hay suficientes componentes");
-                        sleep(1000);
+                        sleep(daysMS);
                     }
                 } else {
                     if (this.isPossibleCompuGPU()) {
@@ -80,11 +82,11 @@ public class Assembler extends Thread{
                         this.buildCompuGPU();
                         counter = 0;
                         System.out.println("Hay "+computerGPUStorage+" computadoras con GPU");
-                        sleep(days);
+                        sleep(days*daysMS);
                         mutex.release();
                     } else {
                         System.out.println("No hay suficientes componentes para GPU");
-                        sleep(1000);
+                        sleep(daysMS);
                     }
                 }
             }catch(InterruptedException e) {
@@ -113,7 +115,7 @@ public class Assembler extends Thread{
         bRAM.setValue(storage[2]);
         
         storage[3] -= nPowerSupply;
-        bMB.setValue(storage[3]);
+        bPSU.setValue(storage[3]);
         
         computerStorage++;
         nCompuI.setText(Integer.toString(computerStorage));
@@ -130,7 +132,7 @@ public class Assembler extends Thread{
         bRAM.setValue(storage[2]);
         
         storage[3] -= nPowerSupply;
-        bMB.setValue(storage[3]);
+        bPSU.setValue(storage[3]);
         
         storage[4] -= nGPU;
         bGPU.setValue(storage[4]);

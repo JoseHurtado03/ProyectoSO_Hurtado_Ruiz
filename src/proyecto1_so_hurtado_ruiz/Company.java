@@ -96,7 +96,7 @@ public class Company {
                 employee = new Productor(getStorage(), 10, 4, 34, 1, 3*daysMS, getMutex(), hpUX.pbGPU);
             }
             if (typeWorker==5) { //Estamos en el caso de que contrataremos un ensamblador
-                employee = new Assembler(getStorage(), getProducedPC(), getProducedGPU_PC(), 1, 1, 2, 4, 3, 2, 2*daysMS, getMutex(), hpUX.pbMB, hpUX.pbCPU, hpUX.pbRAM, hpUX.pbPSU, hpUX.pbGPU, hpUX.nCompuI, hpUX.gpuCompuI);
+                employee = new Assembler(getStorage(), getProducedPC(), getProducedGPU_PC(), 1, 1, 2, 4, 3, 2, 2, dayMS, getMutex(), hpUX.pbMB, hpUX.pbCPU, hpUX.pbRAM, hpUX.pbPSU, hpUX.pbGPU, hpUX.nCompuI, hpUX.gpuCompuI);
             }
         } else if (companyID==1){ //Estamos en el caso de que contrataremos empleados para DELL
             
