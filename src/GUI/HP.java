@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 import proyecto1_so_hurtado_ruiz.Main;
 import EDD.List;
+import static GUI.mainMenu.daysDeadline;
 import javax.swing.JTextField;
 import proyecto1_so_hurtado_ruiz.Company;
 
@@ -33,6 +34,8 @@ public class HP extends javax.swing.JFrame {
     public static JTextField tGPU_HP;
     public static JTextField tAssemb_HP;
     
+    public JLabel PM_Discounts;
+    public JLabel incomesHP;
     public static JLabel profit_HP;
     
     /**
@@ -48,17 +51,19 @@ public class HP extends javax.swing.JFrame {
         pbPSU = LoadingBarPSU;
         pbGPU = LoadingBarGPU;
         
-
-        
         nCompuI = ManufacturedNormalPCs;
         gpuCompuI = ManufacturedGPUPCs;
         
         pmStatus = PM_State;
-        dirStatus = Director_State;
+        dirStatus = Director_State1;
         totalDays = totalDaysToDeadline;
         currentsDays = daysPassed;
         
+        PM_Discounts = discounts;
+        incomesHP = incomes;
         profit_HP = profitHP;
+        
+        totalDaysToDeadline.setText(Integer.toString(daysDeadline));
         
         
         //El texto de la pantalla se va a inicializar como la información de la misma compañía
@@ -141,7 +146,7 @@ public class HP extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         PM_State = new javax.swing.JLabel();
-        Director_State = new javax.swing.JLabel();
+        discounts = new javax.swing.JLabel();
         totalDaysToDeadline = new javax.swing.JLabel();
         daysPassed = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
@@ -181,7 +186,7 @@ public class HP extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
-        PM_State1 = new javax.swing.JLabel();
+        incomes = new javax.swing.JLabel();
         Director_State2 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         profitHP = new javax.swing.JLabel();
@@ -533,10 +538,10 @@ public class HP extends javax.swing.JFrame {
         PM_State.setText("Working");
         jPanel4.add(PM_State, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 61, 69, -1));
 
-        Director_State.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        Director_State.setForeground(new java.awt.Color(255, 255, 255));
-        Director_State.setText("0");
-        jPanel4.add(Director_State, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 69, -1));
+        discounts.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        discounts.setForeground(new java.awt.Color(255, 255, 255));
+        discounts.setText("0");
+        jPanel4.add(discounts, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 69, -1));
 
         totalDaysToDeadline.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         totalDaysToDeadline.setForeground(new java.awt.Color(255, 255, 255));
@@ -789,10 +794,10 @@ public class HP extends javax.swing.JFrame {
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
         jPanel6.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 113, -1, -1));
 
-        PM_State1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        PM_State1.setForeground(new java.awt.Color(255, 255, 255));
-        PM_State1.setText("0");
-        jPanel6.add(PM_State1, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 61, 69, -1));
+        incomes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        incomes.setForeground(new java.awt.Color(255, 255, 255));
+        incomes.setText("0");
+        jPanel6.add(incomes, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 61, 69, -1));
 
         Director_State2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Director_State2.setForeground(new java.awt.Color(255, 255, 255));
@@ -1078,7 +1083,6 @@ public class HP extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Director_State;
     private javax.swing.JLabel Director_State1;
     private javax.swing.JLabel Director_State2;
     private javax.swing.JProgressBar LoadingBarCPU;
@@ -1089,7 +1093,6 @@ public class HP extends javax.swing.JFrame {
     private javax.swing.JLabel ManufacturedGPUPCs;
     private javax.swing.JLabel ManufacturedNormalPCs;
     private javax.swing.JLabel PM_State;
-    private javax.swing.JLabel PM_State1;
     private javax.swing.JLabel QuantityCPU;
     private javax.swing.JLabel QuantityGPU;
     private javax.swing.JLabel QuantityMB;
@@ -1097,8 +1100,10 @@ public class HP extends javax.swing.JFrame {
     private javax.swing.JLabel QuantityRAM;
     private javax.swing.JButton backButton;
     private javax.swing.JLabel daysPassed;
+    private javax.swing.JLabel discounts;
     private javax.swing.JTextField fieldTotalWorkers;
     private javax.swing.JTextField fieldTotalWorkers1;
+    private javax.swing.JLabel incomes;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;

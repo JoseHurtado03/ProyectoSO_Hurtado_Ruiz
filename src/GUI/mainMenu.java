@@ -41,7 +41,7 @@ public class mainMenu extends javax.swing.JFrame {
     public int[] storageHP;       //ALMACÉN   [| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU |]
     public int[] storageDELL;     //ALMACÉN   [| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU |]
     public int dayMS;
-    public int daysDeadline;
+    public static int daysDeadline;
 
     //Variables para iniciar la simulación
     public int[] workersHP; //Array, dice cuántos empleados contratar. [| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU | 5 assemblers|]
