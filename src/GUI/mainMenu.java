@@ -61,7 +61,7 @@ public class mainMenu extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.storageHP= new int[5];
-        this.workersHP= new int[6];
+        this.workersHP= new int[8];
         for (int i = 0; i < workersHP.length; i++) {
             workersHP[i]=1;
         }

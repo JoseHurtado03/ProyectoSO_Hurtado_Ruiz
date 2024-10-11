@@ -51,8 +51,6 @@ public class Company {
 //        this.pPSUList = new List();
 //        this.pGPUList = new List();
 //        this.assemblerList = new List();
-        this.pm = new ProjectManager(20, 40, 0, this.startTime, this.dayMS, hpUX.pmStatus, hpUX.currentsDays);                         //¡¡Los días restantes deben estar en una variable!!
-        this.director= new Director(20, this.producedPC, this.producedGPU_PC, 90, 140, this.pm, 60, this.dayMS, hpUX.dirStatus, hpUX.nCompuI, hpUX.gpuCompuI); //¡¡Los días restantes deben estar en una variable!!
         this.storage = new int[5];
         this.workersList = new List[6]; //[| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU | 5 assembler |]
         for (int i = 0; i < workersList.length; i++) {
@@ -103,6 +101,12 @@ public class Company {
             if (typeWorker==5) { //Estamos en el caso de que contrataremos un ensamblador
                 employee = new Assembler(getStorage(), getProducedPC(), getProducedGPU_PC(), 1, 1, 2, 4, 3, 2, 2, dayMS, getMutex(), hpUX.pbMB, hpUX.pbCPU, hpUX.pbRAM, hpUX.pbPSU, hpUX.pbGPU, hpUX.nCompuI, hpUX.gpuCompuI);
             }
+            if (typeWorker==6) { //Estamos en el caso de que contrataremos un ensamblador
+                employee = new ProjectManager(20, 40, 0, this.startTime, this.dayMS, hpUX.pmStatus, hpUX.currentsDays);    
+            }
+            if (typeWorker==7) { //Estamos en el caso de que contrataremos un ensamblador
+                employee = new Director(20, this.producedPC, this.producedGPU_PC, 90, 140, this.pm, 60, this.dayMS, hpUX.dirStatus, hpUX.nCompuI, hpUX.gpuCompuI); //¡¡Los días restantes deben estar en una variable!!
+            }
         } else if (companyID==1){ //Estamos en el caso de que contrataremos empleados para DELL
             
             if (typeWorker==0) { //Estamos en el caso de que contrataremos MB productores
@@ -122,6 +126,12 @@ public class Company {
             }
             if (typeWorker==5) { //Estamos en el caso de que contrataremos un ensamblador
                 employee = new Assembler(getStorage(), getProducedPC(), getProducedGPU_PC(), 1, 1, 2, 4, 3, 2, 2,dayMS, getMutex(), dellUX.pbMB, dellUX.pbCPU, dellUX.pbRAM, dellUX.pbPSU, dellUX.pbGPU, dellUX.nCompuI, dellUX.gpuCompuI);
+            }
+            if (typeWorker==6) { //Estamos en el caso de que contrataremos un ensamblador
+                employee = new ProjectManager(20, 40, 0, this.startTime, this.dayMS, dellUX.pmStatus, dellUX.currentsDays);    
+            }
+            if (typeWorker==7) { //Estamos en el caso de que contrataremos un ensamblador
+                employee = new Director(20, this.producedPC, this.producedGPU_PC, 90, 140, this.pm, 60, this.dayMS, dellUX.dirStatus, dellUX.nCompuI, dellUX.gpuCompuI); //¡¡Los días restantes deben estar en una variable!!
             }
         } 
         return employee;
