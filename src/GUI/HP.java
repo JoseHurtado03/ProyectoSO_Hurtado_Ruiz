@@ -25,7 +25,6 @@ public class HP extends javax.swing.JFrame {
     public JLabel dirStatus;
     public JLabel totalDays;
     public JLabel currentsDays;
-    public boolean initiated;
     
     public static JTextField tMBM_HP;
     public static JTextField tCPU_HP;
@@ -1035,7 +1034,7 @@ public class HP extends javax.swing.JFrame {
         numGPU.setText(Integer.toString(mainMenu.hp.getpGPUList().getSize()));
         numAssembler.setText(Integer.toString(mainMenu.hp.getAssemblerList().getSize()));
         
-                tMBM_HP = numMBM;
+        tMBM_HP = numMBM;
         tCPU_HP = numCPU;
         tRAM_HP = numRAM;
         tPSU_HP = numPSU;

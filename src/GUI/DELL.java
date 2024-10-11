@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package GUI;
+import EDD.List;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
@@ -15,7 +16,6 @@ import proyecto1_so_hurtado_ruiz.Company;
  * @author hvjos
  */
 public class DELL extends javax.swing.JFrame {
-    static Company dell;
     public JProgressBar pbMB;
     public JProgressBar pbCPU;
     public JProgressBar pbRAM;
@@ -41,21 +41,16 @@ public class DELL extends javax.swing.JFrame {
      * Creates new form DELL
      * @param dell
      */
-    public DELL(Company dell) {
+    public DELL() {
         initComponents();
         this.setLocationRelativeTo(null);
-        pbMB = LoadingBarMB;
-        pbCPU = LoadingBarCPU;
-        pbRAM = LoadingBarRAM;
-        pbPSU = LoadingBarPSU;
-        pbGPU = LoadingBarGPU;
+        pbMB = LoadingBarMBDell;
+        pbCPU = LoadingBarCPUDell;
+        pbRAM = LoadingBarRAMDell;
+        pbPSU = LoadingBarPSUDell;
+        pbGPU = LoadingBarGPUDell;
         
-        tMBM_DELL = numMBM;
-        tCPU_DELL = numCPU;
-        tRAM_DELL = numRAM;
-        tPSU_DELL = numPSU;
-        tGPU_DELL = numGPU;
-        tAssemb_DELL = numAssembler;
+
         
         nCompuI = ManufacturedNormalPCs;
         gpuCompuI = ManufacturedGPUPCs;
@@ -119,11 +114,11 @@ public class DELL extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        LoadingBarMB = new javax.swing.JProgressBar();
-        LoadingBarCPU = new javax.swing.JProgressBar();
-        LoadingBarPSU = new javax.swing.JProgressBar();
-        LoadingBarRAM = new javax.swing.JProgressBar();
-        LoadingBarGPU = new javax.swing.JProgressBar();
+        LoadingBarMBDell = new javax.swing.JProgressBar();
+        LoadingBarCPUDell = new javax.swing.JProgressBar();
+        LoadingBarPSUDell = new javax.swing.JProgressBar();
+        LoadingBarRAMDell = new javax.swing.JProgressBar();
+        LoadingBarGPUDell = new javax.swing.JProgressBar();
         QuantityMB = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -402,11 +397,11 @@ public class DELL extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("GPUs");
         jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 165, -1, -1));
-        jPanel3.add(LoadingBarMB, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 61, 111, 20));
-        jPanel3.add(LoadingBarCPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 87, 111, 20));
-        jPanel3.add(LoadingBarPSU, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 139, 111, 20));
-        jPanel3.add(LoadingBarRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 113, 111, 20));
-        jPanel3.add(LoadingBarGPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 165, 111, 20));
+        jPanel3.add(LoadingBarMBDell, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 61, 111, 20));
+        jPanel3.add(LoadingBarCPUDell, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 87, 111, 20));
+        jPanel3.add(LoadingBarPSUDell, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 139, 111, 20));
+        jPanel3.add(LoadingBarRAMDell, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 113, 111, 20));
+        jPanel3.add(LoadingBarGPUDell, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 165, 111, 20));
 
         QuantityMB.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         QuantityMB.setForeground(new java.awt.Color(255, 255, 255));
@@ -618,162 +613,79 @@ public class DELL extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
-        int num = Integer.parseInt(numMBM.getText());
-        if (num > 1){
-            num--;
+        if (decreaseNumberEmployees(mainMenu.dell.getpMBList())) {
+            numMBM.setText(Integer.toString(mainMenu.dell.getpMBList().getSize()));
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
-        }
-        numMBM.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
-        int num = Integer.parseInt(numCPU.getText());
-        if (num > 1){
-            num--;
+        if (decreaseNumberEmployees(mainMenu.dell.getpCPUList())) {
+            numCPU.setText(Integer.toString(mainMenu.dell.getpCPUList().getSize()));
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
-        }
-        numCPU.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-        int num = Integer.parseInt(numRAM.getText());
-        if (num > 1){
-            num--;
+        if (decreaseNumberEmployees(mainMenu.dell.getpRAMList())) {
+            numRAM.setText(Integer.toString(mainMenu.dell.getpRAMList().getSize()));
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
-        }
-        numRAM.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
-        int num = Integer.parseInt(numPSU.getText());
-        if (num > 1){
-            num--;
+        if (decreaseNumberEmployees(mainMenu.dell.getpPSUList())) {
+            numPSU.setText(Integer.toString(mainMenu.dell.getpPSUList().getSize()));
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
-        }
-        numPSU.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-        int num = Integer.parseInt(numGPU.getText());
-        if (num > 1){
-            num--;
+        if (decreaseNumberEmployees(mainMenu.dell.getpGPUList())) {
+            numGPU.setText(Integer.toString(mainMenu.dell.getpGPUList().getSize()));
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
-        }
-        numGPU.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
-        int num = Integer.parseInt(numAssembler.getText());
-        if (num > 1){
-            num--;
+        if (decreaseNumberEmployees(mainMenu.dell.getAssemblerList())) {
+            numAssembler.setText(Integer.toString(mainMenu.dell.getAssemblerList().getSize()));
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
-        }
-        numAssembler.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        int nMBM = Integer.parseInt(numMBM.getText());
-        int nCPU = Integer.parseInt(numCPU.getText());
-        int nRAM = Integer.parseInt(numRAM.getText());
-        int nPSU = Integer.parseInt(numPSU.getText());
-        int nGPU = Integer.parseInt(numGPU.getText());
-        int nAssemb = Integer.parseInt(numAssembler.getText());
-        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
-        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
-        if (currentQWorkers < maxWorkers){
-            int num = Integer.parseInt(numCPU.getText());
-            num++;
-            numCPU.setText(Integer.toString(num));
-        } else{
-            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+        if (this.addNumberEmployees(mainMenu.dell.getpCPUList(), 1, Main.mainGUI.dayMS)){
+            numCPU.setText(Integer.toString(mainMenu.dell.getpCPUList().getSize()));
         }
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        int nMBM = Integer.parseInt(numMBM.getText());
-        int nCPU = Integer.parseInt(numCPU.getText());
-        int nRAM = Integer.parseInt(numRAM.getText());
-        int nPSU = Integer.parseInt(numPSU.getText());
-        int nGPU = Integer.parseInt(numGPU.getText());
-        int nAssemb = Integer.parseInt(numAssembler.getText());
-        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
-        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
-        if (currentQWorkers < maxWorkers){
-            int num = Integer.parseInt(numAssembler.getText());
-            num++;
-            numAssembler.setText(Integer.toString(num));
-        } else{
-            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+        if (this.addNumberEmployees(mainMenu.dell.getAssemblerList(), 5, Main.mainGUI.dayMS)) {
+            numAssembler.setText(Integer.toString(mainMenu.dell.getAssemblerList().getSize()));
         }
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        int nMBM = Integer.parseInt(numMBM.getText());
-        int nCPU = Integer.parseInt(numCPU.getText());
-        int nRAM = Integer.parseInt(numRAM.getText());
-        int nPSU = Integer.parseInt(numPSU.getText());
-        int nGPU = Integer.parseInt(numGPU.getText());
-        int nAssemb = Integer.parseInt(numAssembler.getText());
-        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
-        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
-        if (currentQWorkers < maxWorkers){
-            int num = Integer.parseInt(numGPU.getText());
-            num++;
-            numGPU.setText(Integer.toString(num));
-        } else{
-            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+        if (this.addNumberEmployees(mainMenu.dell.getpGPUList(), 4, Main.mainGUI.dayMS)) {
+         numGPU.setText(Integer.toString(mainMenu.dell.getpGPUList().getSize()));   
         }
+
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        int nMBM = Integer.parseInt(numMBM.getText());
-        int nCPU = Integer.parseInt(numCPU.getText());
-        int nRAM = Integer.parseInt(numRAM.getText());
-        int nPSU = Integer.parseInt(numPSU.getText());
-        int nGPU = Integer.parseInt(numGPU.getText());
-        int nAssemb = Integer.parseInt(numAssembler.getText());
-        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
-        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
-        if (currentQWorkers < maxWorkers){
-            int num = Integer.parseInt(numPSU.getText());
-            num++;
-            numPSU.setText(Integer.toString(num));
-        } else{
-            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+        if (this.addNumberEmployees(mainMenu.dell.getpPSUList(), 3, Main.mainGUI.dayMS)) {
+            numPSU.setText(Integer.toString(mainMenu.dell.getpPSUList().getSize()));
         }
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        int nMBM = Integer.parseInt(numMBM.getText());
-        int nCPU = Integer.parseInt(numCPU.getText());
-        int nRAM = Integer.parseInt(numRAM.getText());
-        int nPSU = Integer.parseInt(numPSU.getText());
-        int nGPU = Integer.parseInt(numGPU.getText());
-        int nAssemb = Integer.parseInt(numAssembler.getText());
-        int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
-        int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
-        if (currentQWorkers < maxWorkers){
-            int num = Integer.parseInt(numRAM.getText());
-            num++;
-            numRAM.setText(Integer.toString(num));
-        } else{
-            JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+        if (this.addNumberEmployees(mainMenu.dell.getpRAMList(), 2, Main.mainGUI.dayMS)) {
+            numRAM.setText(Integer.toString(mainMenu.dell.getpRAMList().getSize()));
         }
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        if (this.addNumberEmployees(mainMenu.dell.getpMBList(), 0, Main.mainGUI.dayMS)){
+            numMBM.setText(Integer.toString(mainMenu.dell.getpMBList().getSize()));
+        }     
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private boolean addNumberEmployees(List typeEmployeeList, int typeWorker, int dayMS){
         int nMBM = Integer.parseInt(numMBM.getText());
         int nCPU = Integer.parseInt(numCPU.getText());
         int nRAM = Integer.parseInt(numRAM.getText());
@@ -783,14 +695,44 @@ public class DELL extends javax.swing.JFrame {
         int maxWorkers = Integer.parseInt(fieldTotalWorkers1.getText());
         int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
         if (currentQWorkers < maxWorkers){
-            int num = Integer.parseInt(numMBM.getText());
-            num++;
-            numMBM.setText(Integer.toString(num));
+            
+            mainMenu.dell.hireEmployee(0, typeWorker, dayMS);
+            return true;
         } else{
             JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
+            return false;
         }
-    }//GEN-LAST:event_jButton15ActionPerformed
-
+    }
+        
+    private boolean decreaseNumberEmployees(List typeEmployeeList){
+        int num = typeEmployeeList.getSize();
+        if (num > 1){
+            typeEmployeeList.removeLast();
+            return true;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
+            return false;
+        }
+    }
+    
+    public void initiateSimulation(){
+    //El texto de la pantalla se va a inicializar como la información de la misma compañía
+        numMBM.setText(Integer.toString(mainMenu.dell.getpMBList().getSize()));
+        numCPU.setText(Integer.toString(mainMenu.dell.getpCPUList().getSize()));
+        numRAM.setText(Integer.toString(mainMenu.dell.getpRAMList().getSize()));
+        numPSU.setText(Integer.toString(mainMenu.dell.getpPSUList().getSize()));
+        numGPU.setText(Integer.toString(mainMenu.dell.getpGPUList().getSize()));
+        numAssembler.setText(Integer.toString(mainMenu.dell.getAssemblerList().getSize()));
+        
+        tMBM_DELL = numMBM;
+        tCPU_DELL = numCPU;
+        tRAM_DELL = numRAM;
+        tPSU_DELL = numPSU;
+        tGPU_DELL = numGPU;
+        tAssemb_DELL = numAssembler;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -821,7 +763,7 @@ public class DELL extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DELL(dell).setVisible(true);
+                new DELL().setVisible(true);
             }
         });
     }
@@ -830,11 +772,11 @@ public class DELL extends javax.swing.JFrame {
     private javax.swing.JLabel Director_State;
     private javax.swing.JLabel Director_State1;
     private javax.swing.JLabel Director_State2;
-    private javax.swing.JProgressBar LoadingBarCPU;
-    private javax.swing.JProgressBar LoadingBarGPU;
-    private javax.swing.JProgressBar LoadingBarMB;
-    private javax.swing.JProgressBar LoadingBarPSU;
-    private javax.swing.JProgressBar LoadingBarRAM;
+    private javax.swing.JProgressBar LoadingBarCPUDell;
+    private javax.swing.JProgressBar LoadingBarGPUDell;
+    private javax.swing.JProgressBar LoadingBarMBDell;
+    private javax.swing.JProgressBar LoadingBarPSUDell;
+    private javax.swing.JProgressBar LoadingBarRAMDell;
     private javax.swing.JLabel ManufacturedGPUPCs;
     private javax.swing.JLabel ManufacturedNormalPCs;
     private javax.swing.JLabel PM_State;

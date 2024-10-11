@@ -61,16 +61,20 @@ public class mainMenu extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.storageHP= new int[5];
+        this.storageDELL= new int[5];
         this.workersHP= new int[8];
         for (int i = 0; i < workersHP.length; i++) {
             workersHP[i]=1;
         }
-        this.workersDell=workersHP;
+        this.workersDell= new int[8];
+        for (int i = 0; i < workersDell.length; i++) {
+            workersDell[i]=1;
+        }
         this.dayMS= Integer.parseInt(fieldDaysMS.getText());
         this.daysDeadline = Integer.parseInt(fieldDeadlineMS.getText());
         
         hpWindow = new HP();
-        dellWindow = new DELL(dell);
+        dellWindow = new DELL();
         
         fm = new FileManager(fieldDaysMS, fieldDeadlineMS, tMBM_HP, tCPU_HP, tRAM_HP, tPSU_HP, tGPU_HP,tAssemb_HP, tMBM_DELL, tCPU_DELL, tRAM_DELL, tPSU_DELL, tGPU_DELL, tAssemb_DELL);
         
@@ -339,11 +343,12 @@ public class mainMenu extends javax.swing.JFrame {
 
     private void DellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DellActionPerformed
         this.setVisible(false);
-        if (dellWindow==null || dell==null) {
+        if (dellWindow!=null && dell!=null) {
             //dellWindow=new DELL(dell);
+            dellWindow.initiateSimulation();
             dellWindow.setVisible(true);
         } else {
-            dellWindow.setVisible(true);
+            System.out.println("errors");
         }
     }//GEN-LAST:event_DellActionPerformed
 
@@ -363,6 +368,8 @@ public class mainMenu extends javax.swing.JFrame {
         start.setVisible(false);
 //        dell= new Company("Dell", dayMS,  workersDell, storageDELL, 15);
 //        dell.hireEmployee(1, dayMS);
+        dell= new Company("Dell", dayMS, workersDell, storageDELL, 15, hpWindow, dellWindow); 
+        dell.hireSomeEmployees(0, dayMS);
         hp= new Company("HP", dayMS, workersHP, storageHP, 12, hpWindow, dellWindow); 
         hp.hireSomeEmployees(0, dayMS);
        
