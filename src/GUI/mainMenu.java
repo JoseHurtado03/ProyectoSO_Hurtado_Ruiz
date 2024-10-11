@@ -289,11 +289,12 @@ public class mainMenu extends javax.swing.JFrame {
 
     private void HPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HPActionPerformed
         this.setVisible(false);
-        if (hpWindow==null || hp==null) {
-            //hpWindow=new HP();
+        if (hpWindow!=null && hp!=null) {
+//            hpWindow=new HP(hp);
+            hpWindow.initiateSimulation();
             hpWindow.setVisible(true);
         } else {
-            hpWindow.setVisible(true);
+            System.out.println("errors");
         }
     }//GEN-LAST:event_HPActionPerformed
 
@@ -323,7 +324,7 @@ public class mainMenu extends javax.swing.JFrame {
         start.setVisible(false);
 //        dell= new Company("Dell", dayMS,  workersDell, storageDELL, 15);
 //        dell.hireEmployee(1, dayMS);
-        hp= new Company("HP", dayMS, workersHP, storageHP, 12, hpWindow, dellWindow);    
+        hp= new Company("HP", dayMS, workersHP, storageHP, 12, hpWindow, dellWindow); 
         hp.hireSomeEmployees(0, dayMS);
        
     }//GEN-LAST:event_startActionPerformed

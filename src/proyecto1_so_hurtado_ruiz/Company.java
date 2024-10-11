@@ -68,10 +68,10 @@ public class Company {
     
     public void hireSomeEmployees(int companyID, int dayMS) {
         for (int typeWorker = 0 ; typeWorker < getStarterList().length; typeWorker++) { //Itera por la cantidad de empleados distintos que existen
-            for (int workerQuantity = 0; workerQuantity < getStarterList()[typeWorker]+1; workerQuantity++) { //Itera por la cantidad de empleados de x tipo
+            for (int workerQuantity = 0; workerQuantity < getStarterList()[typeWorker]; workerQuantity++) { //Itera por la cantidad de empleados de x tipo
                 Thread employee=findEmployee(companyID, typeWorker, dayMS); //Contrata un nuevo empleado
                 
-                workersList[typeWorker].addEnd(employee); //[| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU | 5 assembler |]
+                workersList[typeWorker].addEnd(employee); //[| 0 motherBoard | 1 CPU | 2 RAM | 3 PSU | 4 GPU | 5 assembler | 6 pm |7 director]
             }
         }
     }

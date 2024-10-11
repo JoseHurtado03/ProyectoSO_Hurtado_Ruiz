@@ -9,11 +9,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 import proyecto1_so_hurtado_ruiz.Main;
 import EDD.List;
-import java.awt.TextField;
 import proyecto1_so_hurtado_ruiz.Company;
 
 public class HP extends javax.swing.JFrame {    
-    static Company hpCompany;
     
     public JProgressBar pbMB;
     public JProgressBar pbCPU;
@@ -26,14 +24,14 @@ public class HP extends javax.swing.JFrame {
     public JLabel dirStatus;
     public JLabel totalDays;
     public JLabel currentsDays;
+    public boolean initiated;
     
     /**
      * Creates new form HP
      * @param hpCompany
      */
-    public HP(Company hpCompany) {
+    public HP() {
         initComponents();
-        this.hpCompany=hpCompany;
         this.setLocationRelativeTo(null);
         pbMB = LoadingBarMB;
         pbCPU = LoadingBarCPU;
@@ -51,12 +49,12 @@ public class HP extends javax.swing.JFrame {
         
         
         //El texto de la pantalla se va a inicializar como la información de la misma compañía
-        numMBM.setText(Integer.toString(hpCompany.getpMBList().getSize()));
-        numCPU.setText(Integer.toString(hpCompany.getpCPUList().getSize()));
-        numRAM.setText(Integer.toString(hpCompany.getpRAMList().getSize()));
-        numPSU.setText(Integer.toString(hpCompany.getpPSUList().getSize()));
-        numGPU.setText(Integer.toString(hpCompany.getpGPUList().getSize()));
-        numAssembler.setText(Integer.toString(hpCompany.getAssemblerList().getSize()));
+//        numMBM.setText(Integer.toString(hpCompany.getpMBList().getSize()));
+//        numCPU.setText(Integer.toString(hpCompany.getpCPUList().getSize()));
+//        numRAM.setText(Integer.toString(hpCompany.getpRAMList().getSize()));
+//        numPSU.setText(Integer.toString(hpCompany.getpPSUList().getSize()));
+//        numGPU.setText(Integer.toString(hpCompany.getpGPUList().getSize()));
+//        numAssembler.setText(Integer.toString(hpCompany.getAssemblerList().getSize()));
     }
 
     /**
@@ -838,117 +836,89 @@ public class HP extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton14ActionPerformed
 
+    //Acá comienza la añadera de threads papá
+    
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        if (this.addNumberEmployees(hpCompany.getpMBList(), 0, Main.mainGUI.dayMS)){
-            numMBM.setText(Integer.toString(hpCompany.getpMBList().getSize()));
-        }    
-        
+        if (this.addNumberEmployees(mainMenu.hp.getpMBList(), 0, Main.mainGUI.dayMS)){
+            numMBM.setText(Integer.toString(mainMenu.hp.getpMBList().getSize()));
+        }        
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
-        if (this.addNumberEmployees(hpCompany.getpCPUList(), 1, Main.mainGUI.dayMS)){
-            numCPU.setText(Integer.toString(hpCompany.getpCPUList().getSize()));
+        if (this.addNumberEmployees(mainMenu.hp.getpCPUList(), 1, Main.mainGUI.dayMS)){
+            numCPU.setText(Integer.toString(mainMenu.hp.getpCPUList().getSize()));
         }
         
 
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        if (this.addNumberEmployees(hpCompany.getpPSUList(), 3, Main.mainGUI.dayMS)) {
-            numPSU.setText(Integer.toString(hpCompany.getpPSUList().getSize()));
+        if (this.addNumberEmployees(mainMenu.hp.getpPSUList(), 3, Main.mainGUI.dayMS)) {
+            numPSU.setText(Integer.toString(mainMenu.hp.getpPSUList().getSize()));
         }
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        if (this.addNumberEmployees(hpCompany.getpRAMList(), 2, Main.mainGUI.dayMS)) {
-            numRAM.setText(Integer.toString(hpCompany.getpRAMList().getSize()));
+        if (this.addNumberEmployees(mainMenu.hp.getpRAMList(), 2, Main.mainGUI.dayMS)) {
+            numRAM.setText(Integer.toString(mainMenu.hp.getpRAMList().getSize()));
         }
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        if (this.addNumberEmployees(hpCompany.getAssemblerList(), 5, Main.mainGUI.dayMS)) {
-            numAssembler.setText(Integer.toString(hpCompany.getAssemblerList().getSize()));
+        if (this.addNumberEmployees(mainMenu.hp.getAssemblerList(), 5, Main.mainGUI.dayMS)) {
+            numAssembler.setText(Integer.toString(mainMenu.hp.getAssemblerList().getSize()));
         }
 
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
-        if (this.addNumberEmployees(hpCompany.getpGPUList(), 4, Main.mainGUI.dayMS)) {
-         numGPU.setText(Integer.toString(hpCompany.getpGPUList().getSize()));   
+        if (this.addNumberEmployees(mainMenu.hp.getpGPUList(), 4, Main.mainGUI.dayMS)) {
+         numGPU.setText(Integer.toString(mainMenu.hp.getpGPUList().getSize()));   
         }
 
     }//GEN-LAST:event_jButton20ActionPerformed
 
+    //Acá comienza la borradera de threads papá
+    
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
-        int num = Integer.parseInt(numMBM.getText());
-        if (num > 1){
-            num--;
+        if (decreaseNumberEmployees(mainMenu.hp.getpMBList())) {
+            numMBM.setText(Integer.toString(mainMenu.hp.getpMBList().getSize()));
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
-        }
-        numMBM.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
-        int num = Integer.parseInt(numCPU.getText());
-        if (num > 1){
-            num--;
+        if (decreaseNumberEmployees(mainMenu.hp.getpCPUList())) {
+            numCPU.setText(Integer.toString(mainMenu.hp.getpCPUList().getSize()));
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
-        }
-        numCPU.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-        int num = Integer.parseInt(numRAM.getText());
-        if (num > 1){
-            num--;
+        if (decreaseNumberEmployees(mainMenu.hp.getpRAMList())) {
+            numRAM.setText(Integer.toString(mainMenu.hp.getpRAMList().getSize()));
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
-        }
-        numRAM.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
-        int num = Integer.parseInt(numPSU.getText());
-        if (num > 1){
-            num--;
+        if (decreaseNumberEmployees(mainMenu.hp.getpPSUList())) {
+            numPSU.setText(Integer.toString(mainMenu.hp.getpPSUList().getSize()));
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
-        }
-        numPSU.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-        int num = Integer.parseInt(numGPU.getText());
-        if (num > 1){
-            num--;
+        if (decreaseNumberEmployees(mainMenu.hp.getpGPUList())) {
+            numGPU.setText(Integer.toString(mainMenu.hp.getpGPUList().getSize()));
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
-        }
-        numGPU.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
-        int num = Integer.parseInt(numAssembler.getText());
-        if (num > 1){
-            num--;
+        if (decreaseNumberEmployees(mainMenu.hp.getAssemblerList())) {
+            numAssembler.setText(Integer.toString(mainMenu.hp.getAssemblerList().getSize()));
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
-        }
-        numAssembler.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
         int num = Integer.parseInt(fieldTotalWorkers1.getText());
         num++;
-        
         fieldTotalWorkers1.setText(Integer.toString(num));
     }//GEN-LAST:event_jButton27ActionPerformed
 
@@ -975,16 +945,35 @@ public class HP extends javax.swing.JFrame {
         int currentQWorkers = nMBM + nCPU + nRAM + nPSU + nGPU + nAssemb;
         if (currentQWorkers < maxWorkers){
             
-            hpCompany.hireEmployee(0, typeWorker, dayMS);
-            int num = typeEmployeeList.getSize();
+            mainMenu.hp.hireEmployee(0, typeWorker, dayMS);
             return true;
         } else{
             JOptionPane.showMessageDialog(null, "No se debe sobrepasar la máxima cantidad de empleados");
             return false;
         }
-        
     }
     
+    private boolean decreaseNumberEmployees(List typeEmployeeList){
+        int num = typeEmployeeList.getSize();
+        if (num > 1){
+            typeEmployeeList.removeLast();
+            return true;
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Debe haber al menos 1 empleado de cada tipo.");
+            return false;
+        }
+    }
+    
+    public void initiateSimulation(){
+    //El texto de la pantalla se va a inicializar como la información de la misma compañía
+        numMBM.setText(Integer.toString(mainMenu.hp.getpMBList().getSize()));
+        numCPU.setText(Integer.toString(mainMenu.hp.getpCPUList().getSize()));
+        numRAM.setText(Integer.toString(mainMenu.hp.getpRAMList().getSize()));
+        numPSU.setText(Integer.toString(mainMenu.hp.getpPSUList().getSize()));
+        numGPU.setText(Integer.toString(mainMenu.hp.getpGPUList().getSize()));
+        numAssembler.setText(Integer.toString(mainMenu.hp.getAssemblerList().getSize()));
+    }
     /**
      * @param args the command line arguments
      */
@@ -1015,10 +1004,11 @@ public class HP extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HP(hpCompany).setVisible(true);
+                new HP().setVisible(true);
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Director_State;
