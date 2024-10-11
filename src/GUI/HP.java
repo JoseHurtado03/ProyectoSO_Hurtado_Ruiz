@@ -476,7 +476,7 @@ public class HP extends javax.swing.JFrame {
 
         QuantityPSU.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         QuantityPSU.setForeground(new java.awt.Color(255, 255, 255));
-        QuantityPSU.setText("36");
+        QuantityPSU.setText("35");
         jPanel3.add(QuantityPSU, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 139, 47, -1));
 
         QuantityGPU.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N

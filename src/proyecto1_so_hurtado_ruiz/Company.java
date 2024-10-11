@@ -132,7 +132,7 @@ public class Company {
                 employee = new Assembler(getStorage(), getProducedPC(), getProducedGPU_PC(), 1, 1, 2, 4, 3, 2, 2,dayMS, getMutex(), dellUX.pbMB, dellUX.pbCPU, dellUX.pbRAM, dellUX.pbPSU, dellUX.pbGPU, dellUX.nCompuI, dellUX.gpuCompuI);
             }
             if (typeWorker==6) { //Estamos en el caso de que contrataremos un ensamblador
-                ProjectManager employeePM = new ProjectManager(20, 40, 0, this.startTime, this.dayMS, dellUX.pmStatus, dellUX.currentsDays);
+                ProjectManager employeePM = new ProjectManager(daysToDeadline, 40, 0, this.startTime, this.dayMS, dellUX.pmStatus, dellUX.totalDays);
                 employee = employeePM;
                 this.pm=employeePM;
             }
