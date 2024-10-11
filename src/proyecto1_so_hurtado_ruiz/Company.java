@@ -137,7 +137,7 @@ public class Company {
                 this.pm=employeePM;
             }
             if (typeWorker==7) { //Estamos en el caso de que contrataremos un ensamblador
-                //employee = new Director(20, this.producedPC, this.producedGPU_PC, 90, 140, this.pm, 60, this.dayMS, dellUX.dirStatus, dellUX.nCompuI, dellUX.gpuCompuI); //¡¡Los días restantes deben estar en una variable!!
+                employee = new Director(dellUX.totalDays, dellUX.nCompuI, dellUX.gpuCompuI, 80, 120, dellUX.incomesDELL,this.pm, 60, this.dayMS, dellUX.dirStatus, dellUX.nCompuI, dellUX.gpuCompuI, dellUX.DELL_Discounts, getProducedPC(), getProducedGPU_PC()); //¡¡Los días restantes deben estar en una variable!!
             }
         } 
         return employee;
