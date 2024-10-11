@@ -81,6 +81,7 @@ public class Company {
 
     public Thread findEmployee(int companyID, int typeWorker, int daysMS) {
         Thread employee=null;
+        int daysToDeadline = Integer.parseInt(hpUX.totalDays.getText());
         if (companyID==0) { //Estamos en el caso de que contrataremos empleados para HP
             
             if (typeWorker==0) { //Estamos en el caso de que contrataremos MB productores
@@ -102,13 +103,13 @@ public class Company {
                 employee = new Assembler(getStorage(), getProducedPC(), getProducedGPU_PC(), 1, 1, 2, 4, 3, 2, 2, dayMS, getMutex(), hpUX.pbMB, hpUX.pbCPU, hpUX.pbRAM, hpUX.pbPSU, hpUX.pbGPU, hpUX.nCompuI, hpUX.gpuCompuI);
             }
             if (typeWorker==6) { //Estamos en el caso de que contrataremos un pm
-                ProjectManager employeePM = new ProjectManager(20, 40, 0, this.startTime, this.dayMS, hpUX.pmStatus, hpUX.currentsDays);
+                ProjectManager employeePM = new ProjectManager(daysToDeadline, 40, 0, this.startTime, this.dayMS, hpUX.pmStatus, hpUX.totalDays);
                 employee = employeePM;
                 this.pm=employeePM;
 
             }
             if (typeWorker==7) { //Estamos en el caso de que contrataremos un director
-                employee = new Director(20, this.producedPC, this.producedGPU_PC, 90, 140, this.pm, 60, this.dayMS, hpUX.dirStatus, hpUX.nCompuI, hpUX.gpuCompuI); //¡¡Los días restantes deben estar en una variable!!
+                employee = new Director(hpUX.totalDays, hpUX.nCompuI, hpUX.gpuCompuI, 90, 140, hpUX.incomesHP,this.pm, 60, this.dayMS, hpUX.dirStatus, hpUX.nCompuI, hpUX.gpuCompuI, hpUX.PM_Discounts, getProducedPC(), getProducedGPU_PC());
             }
         } else if (companyID==1){ //Estamos en el caso de que contrataremos empleados para DELL
             
@@ -136,7 +137,7 @@ public class Company {
                 this.pm=employeePM;
             }
             if (typeWorker==7) { //Estamos en el caso de que contrataremos un ensamblador
-                employee = new Director(20, this.producedPC, this.producedGPU_PC, 90, 140, this.pm, 60, this.dayMS, dellUX.dirStatus, dellUX.nCompuI, dellUX.gpuCompuI); //¡¡Los días restantes deben estar en una variable!!
+                //employee = new Director(20, this.producedPC, this.producedGPU_PC, 90, 140, this.pm, 60, this.dayMS, dellUX.dirStatus, dellUX.nCompuI, dellUX.gpuCompuI); //¡¡Los días restantes deben estar en una variable!!
             }
         } 
         return employee;

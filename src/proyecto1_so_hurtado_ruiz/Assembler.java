@@ -118,7 +118,8 @@ public class Assembler extends Thread{
         bPSU.setValue(storage[3]);
         
         computerStorage++;
-        nCompuI.setText(Integer.toString(computerStorage));
+        int aux = Integer.parseInt(nCompuI.getText())+1;
+        nCompuI.setText(Integer.toString(aux));
     }
     
     public void buildCompuGPU(){
@@ -138,6 +139,7 @@ public class Assembler extends Thread{
         bGPU.setValue(storage[4]);
         
         computerGPUStorage ++;
-        gpuCompuI.setText(Integer.toString(computerGPUStorage));
+        int aux = Integer.parseInt(gpuCompuI.getText())+1;
+        gpuCompuI.setText(Integer.toString(aux));
     }
 }
