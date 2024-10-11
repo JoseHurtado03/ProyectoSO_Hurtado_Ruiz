@@ -331,6 +331,8 @@ public class mainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void HPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HPActionPerformed
+        
+        
         this.setVisible(false);
         if (hpWindow!=null && hp!=null) {
 //            hpWindow=new HP(hp);
@@ -369,7 +371,7 @@ public class mainMenu extends javax.swing.JFrame {
 //        dell= new Company("Dell", dayMS,  workersDell, storageDELL, 15);
 //        dell.hireEmployee(1, dayMS);
         dell= new Company("Dell", dayMS, workersDell, storageDELL, 15, hpWindow, dellWindow); 
-        dell.hireSomeEmployees(0, dayMS);
+        dell.hireSomeEmployees(1, dayMS);
         hp= new Company("HP", dayMS, workersHP, storageHP, 12, hpWindow, dellWindow); 
         hp.hireSomeEmployees(0, dayMS);
        

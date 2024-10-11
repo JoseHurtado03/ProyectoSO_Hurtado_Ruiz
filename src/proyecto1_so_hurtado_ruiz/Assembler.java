@@ -69,11 +69,11 @@ public class Assembler extends Thread{
                         mutex.acquire();
                         this.buildCompuN();
                         counter++;
-                        System.out.println("Hay "+computerStorage+" computadoras normales");
+                        //System.out.println("Hay "+computerStorage+" computadoras normales");
                         sleep(days*daysMS);
                         mutex.release();
                     }else{
-                        System.out.println("No hay suficientes componentes");
+                        //System.out.println("No hay suficientes componentes");
                         sleep(daysMS);
                     }
                 } else {
@@ -81,7 +81,7 @@ public class Assembler extends Thread{
                         mutex.acquire();
                         this.buildCompuGPU();
                         counter = 0;
-                        System.out.println("Hay "+computerGPUStorage+" computadoras con GPU");
+                        //System.out.println("Hay "+computerGPUStorage+" computadoras con GPU");
                         sleep(days*daysMS);
                         mutex.release();
                     } else {

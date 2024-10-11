@@ -49,7 +49,7 @@ public class ProjectManager extends Thread{
                     this.setIsWatchingAnime(false);
                     status.setText("Working");
                     this.setHoursCounter(System.currentTimeMillis());
-                    System.out.println("PASÓ UN DÍA");
+                    //System.out.println("PASÓ UN DÍA");
                     daysCounter--;
                     int days = Integer.parseInt(counter.getText())-1;
                     counter.setText(Integer.toString(days));

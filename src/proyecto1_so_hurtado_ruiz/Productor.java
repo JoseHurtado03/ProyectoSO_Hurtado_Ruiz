@@ -43,14 +43,14 @@ public class Productor extends Thread{
                     storage[index] += productsQuantity;
                     int quant = bar.getValue()+1;
                     bar.setValue(quant);
-                    System.out.println("Producto añadido correctamente");       //Solo para debug
+                    //System.out.println("Producto añadido correctamente");       //Solo para debug
                     for (int i = 0; i < storage.length; i++) {                  //Solo para debug
                         System.out.println(storage[i]);
                     }
                     mutex.release();
                     sleep(days);
                 }else{
-                    System.out.println("Almacén lleno");                        //Solo para debug
+                    //System.out.println("Almacén lleno");                        //Solo para debug
                     sleep(1000);
                 }
             }catch(InterruptedException e){
