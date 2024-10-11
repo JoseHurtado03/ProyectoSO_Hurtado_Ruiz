@@ -111,7 +111,7 @@ public class Company {
             if (typeWorker==7) { //Estamos en el caso de que contrataremos un director
                 employee = new Director(hpUX.totalDays, hpUX.nCompuI, hpUX.gpuCompuI, 90, 140, hpUX.incomesHP,this.pm, 60, this.dayMS, hpUX.dirStatus, hpUX.nCompuI, hpUX.gpuCompuI, hpUX.PM_Discounts, getProducedPC(), getProducedGPU_PC());
             }
-        } else if (companyID==1){ //Estamos en el caso de que contrataremos empleados para DELL
+        }  if (companyID==1){ //Estamos en el caso de que contrataremos empleados para DELL
             
             if (typeWorker==0) { //Estamos en el caso de que contrataremos MB productores
                 employee = new Productor(getStorage(), 25, 0, 20, 1, 3*daysMS, getMutex(), dellUX.pbMB); //int[] storage, int storageLimit, int index, int salary, int productsQuantity, int days, Semaphore mutex, JProgressBar bar
@@ -137,7 +137,7 @@ public class Company {
                 this.pm=employeePM;
             }
             if (typeWorker==7) { //Estamos en el caso de que contrataremos un ensamblador
-                //employee = new Director(20, this.producedPC, this.producedGPU_PC, 90, 140, this.pm, 60, this.dayMS, dellUX.dirStatus, dellUX.nCompuI, dellUX.gpuCompuI); //¡¡Los días restantes deben estar en una variable!!
+                new Director(dellUX.totalDays, dellUX.nCompuI, dellUX.gpuCompuI, 90, 140, 10,this.pm, 60, this.dayMS, dellUX.dirStatus, dellUX.nCompuI, dellUX.gpuCompuI, dellUX.PM_Discounts, getProducedPC(), getProducedGPU_PC());
             }
         } 
         return employee;

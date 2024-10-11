@@ -635,6 +635,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JProgressBar" name="LoadingBarMBDell">
+              <Properties>
+                <Property name="maximum" type="int" value="25"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="116" y="61" width="111" height="20"/>

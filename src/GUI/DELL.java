@@ -397,6 +397,8 @@ public class DELL extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("GPUs");
         jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 165, -1, -1));
+
+        LoadingBarMBDell.setMaximum(25);
         jPanel3.add(LoadingBarMBDell, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 61, 111, 20));
         jPanel3.add(LoadingBarCPUDell, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 87, 111, 20));
         jPanel3.add(LoadingBarPSUDell, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 139, 111, 20));

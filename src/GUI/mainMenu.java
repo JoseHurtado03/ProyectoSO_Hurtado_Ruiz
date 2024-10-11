@@ -368,10 +368,11 @@ public class mainMenu extends javax.swing.JFrame {
         start.setVisible(false);
 //        dell= new Company("Dell", dayMS,  workersDell, storageDELL, 15);
 //        dell.hireEmployee(1, dayMS);
-        dell= new Company("Dell", dayMS, workersDell, storageDELL, 15, hpWindow, dellWindow); 
-        dell.hireSomeEmployees(0, dayMS);
+        
         hp= new Company("HP", dayMS, workersHP, storageHP, 12, hpWindow, dellWindow); 
         hp.hireSomeEmployees(0, dayMS);
+        dell= new Company("Dell", dayMS, workersDell, storageDELL, 15, hpWindow, dellWindow); 
+        dell.hireSomeEmployees(1, dayMS);
        
     }//GEN-LAST:event_startActionPerformed
 
