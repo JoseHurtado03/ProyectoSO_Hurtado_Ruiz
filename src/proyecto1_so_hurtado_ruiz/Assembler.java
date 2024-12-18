@@ -85,7 +85,7 @@ public class Assembler extends Thread{
                         sleep(days*daysMS);
                         mutex.release();
                     } else {
-                        System.out.println("No hay suficientes componentes para GPU");
+//                        System.out.println("No hay suficientes componentes para GPU");
                         sleep(daysMS);
                     }
                 }

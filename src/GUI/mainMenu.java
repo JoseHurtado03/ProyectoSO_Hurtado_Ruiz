@@ -19,6 +19,7 @@ import static GUI.HP.tMBM_HP;
 import static GUI.HP.tPSU_HP;
 import static GUI.HP.tRAM_HP;
 import java.util.concurrent.Semaphore;
+import javax.swing.JOptionPane;
 import proyecto1_so_hurtado_ruiz.Assembler;
 import proyecto1_so_hurtado_ruiz.Main;
 import proyecto1_so_hurtado_ruiz.Productor;
@@ -331,26 +332,37 @@ public class mainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void HPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HPActionPerformed
-        
-        
-        this.setVisible(false);
-        if (hpWindow!=null && hp!=null) {
-//            hpWindow=new HP(hp);
-            hpWindow.initiateSimulation();
-            hpWindow.setVisible(true);
-        } else {
-            System.out.println("errors");
+        try {
+            this.setVisible(false);
+            if (hpWindow!=null && hp!=null) {
+    //            hpWindow=new HP(hp);
+                hpWindow.initiateSimulation();
+                hpWindow.setVisible(true);
+            } else {
+                System.out.println("errors");
+                this.setVisible(true);
+                JOptionPane.showMessageDialog(null, "Inicia la simulación primero");
+            }
+            
+        } catch (Exception e) {
         }
+        
     }//GEN-LAST:event_HPActionPerformed
 
     private void DellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DellActionPerformed
-        this.setVisible(false);
-        if (dellWindow!=null && dell!=null) {
-            //dellWindow=new DELL(dell);
-            dellWindow.initiateSimulation();
-            dellWindow.setVisible(true);
-        } else {
-            System.out.println("errors");
+        try {
+            this.setVisible(false);
+            if (dellWindow!=null && dell!=null) {
+                //dellWindow=new DELL(dell);
+                dellWindow.initiateSimulation();
+                dellWindow.setVisible(true);
+            } else {
+                System.out.println("errors");
+                this.setVisible(true);
+                JOptionPane.showMessageDialog(null, "Inicia la simulación primero");
+            }
+            
+        } catch (Exception e) {
         }
     }//GEN-LAST:event_DellActionPerformed
 

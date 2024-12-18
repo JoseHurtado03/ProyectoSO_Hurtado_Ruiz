@@ -61,7 +61,7 @@ public class HP extends javax.swing.JFrame {
         
         PM_Discounts = discounts;
         incomesHP = incomes;
-        profit_HP = profitHP;
+        profit_HP = incomes;
         
         totalDaysToDeadline.setText(Integer.toString(daysDeadline));
         

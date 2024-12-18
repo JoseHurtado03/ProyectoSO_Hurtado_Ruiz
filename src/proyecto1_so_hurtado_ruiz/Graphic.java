@@ -13,18 +13,21 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.Color;
 import java.awt.Font;
+import static java.lang.Thread.sleep;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
-public class Graphic extends JFrame implements Runnable{
+public class Graphic extends JFrame implements Runnable {
     JFreeChart chart;
     XYSeries serie1;
     XYSeries serie2;
-    
+    ChartPanel panel; // Mueve el panel a nivel de clase
+
     JTextField daysMS;
     JLabel incomeHP;
     JLabel incomeDELL;
 
-    int numPairs = 5;//Números de parejas ordenadas que se verán en el gráfico
+    int numPairs = 5; // Números de parejas ordenadas que se verán en el gráfico
 
     public Graphic(JTextField daysMS, JLabel incomeHP, JLabel incomeDELL) {
         super("Gráfico HP vs. DELL");
@@ -39,7 +42,7 @@ public class Graphic extends JFrame implements Runnable{
 
         createGUI();
         setVisible(true);
-        run();
+        new Thread(this).start(); // Inicia el hilo correctamente
     }
 
     private void createGUI() {
@@ -52,44 +55,48 @@ public class Graphic extends JFrame implements Runnable{
 
         createGraphic();
 
-        ChartPanel panel = new ChartPanel(chart, false);
+        panel = new ChartPanel(chart, false); // Inicializa el ChartPanel
         panel.setBounds(15, 60, 750, 480);
         add(panel);
     }
 
     public void run() {
         try {
-            int x = 1;//valor de la coordenada en x
-            int y = 0;//valor de la coordenada en x
+            int x = 1; // valor de la coordenada en x
             while (true) {
-                
+                sleep(19000);
                 Thread.sleep(Integer.parseInt(daysMS.getText()));
-                
-                
-                y = Integer.parseInt(incomeHP.getText());//Valor de la ganancia de HP
-                serie1.add(x, y);//adicionar la pareja ordenada al grafico
-                
-                
-                y = Integer.parseInt(incomeDELL.getText());//Valor de la ganancia de HP
-                serie2.add(x, y);//adicionar la pareja ordenada al grafico
 
-                if (serie1.getItemCount() > numPairs) {//si se visualizaron todas las parejas ordenadas, entonces...
-                    serie1.remove(0);//borrar la primera pareja ordenada del grafico
-                    serie2.remove(0);//borrar la primera pareja ordenada del grafico
+                int yHP = Integer.parseInt(incomeHP.getText()); // Valor de la ganancia de HP
+                serie1.add(x, yHP); // Adicionar la pareja ordenada al grafico
+
+                int yDELL = Integer.parseInt(incomeDELL.getText()); // Valor de la ganancia de DELL
+                serie2.add(x, yDELL); // Adicionar la pareja ordenada al grafico
+
+                // Si se visualizaron todas las parejas ordenadas, entonces...
+                if (serie1.getItemCount() > numPairs) {
+                    serie1.remove(0); // Borrar la primera pareja ordenada del grafico
+                    serie2.remove(0); // Borrar la primera pareja ordenada del grafico
                 }
-                x++;//aumentar la coordenada x
+
+                // Actualiza el panel de gráficos
+                SwingUtilities.invokeLater(() -> panel.repaint());
+
+                x++; // Aumentar la coordenada x
             }
         } catch (InterruptedException ie) {
             JOptionPane.showMessageDialog(null, "Error en el método sleep");
+        } catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(null, "Error en el formato del número: " + nfe.getMessage());
         }
     }
 
     public void createGraphic() {
         serie1 = new XYSeries("HP");
-        serie1.add(0, 0);//adicionar la primera pareja ordenada al grafico		
+        serie1.add(0, 0); // Adicionar la primera pareja ordenada al grafico        
 
         serie2 = new XYSeries("DELL");
-        serie2.add(0, 0);//adicionar la primera pareja ordenada al grafico
+        serie2.add(0, 0); // Adicionar la primera pareja ordenada al grafico
 
         XYSeriesCollection dataset = new XYSeriesCollection();
         dataset.addSeries(serie1);
@@ -102,7 +109,7 @@ public class Graphic extends JFrame implements Runnable{
                 dataset,       // Datos
                 PlotOrientation.VERTICAL,
                 true,          // Muestra la leyenda de los productos en el eje de la X
-                true,          // mostrar la leyenda en cada punto
+                true,          // Mostrar la leyenda en cada punto
                 false
         );
     }

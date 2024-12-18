@@ -57,13 +57,13 @@ public class DELL extends javax.swing.JFrame {
         gpuCompuI = ManufacturedGPUPCs;
         
         pmStatus = PM_State;
-        dirStatus = discounts;
+        dirStatus = Director_State1;
         totalDays = totalDaysToDeadline;
         currentsDays = daysPassed;
         
         DELL_Discounts = discounts;
         incomesDELL = incomes;
-        profit_DELL = profitDELL;
+        profit_DELL = incomes;
         
         totalDaysToDeadline.setText(Integer.toString(daysDeadline));
         //this.dell = dell;
@@ -455,12 +455,12 @@ public class DELL extends javax.swing.JFrame {
 
         ManufacturedGPUPCs.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ManufacturedGPUPCs.setForeground(new java.awt.Color(255, 255, 255));
-        ManufacturedGPUPCs.setText("15");
+        ManufacturedGPUPCs.setText("0");
         jPanel3.add(ManufacturedGPUPCs, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 252, 47, -1));
 
         ManufacturedNormalPCs.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ManufacturedNormalPCs.setForeground(new java.awt.Color(255, 255, 255));
-        ManufacturedNormalPCs.setText("15");
+        ManufacturedNormalPCs.setText("0");
         jPanel3.add(ManufacturedNormalPCs, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 226, 47, -1));
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
